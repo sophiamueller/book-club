@@ -82,7 +82,7 @@ addDecorator(
      * enable/disable shortcuts
      * @type {Boolean}
      */
-    enableShortcuts: true, // true by default
+    enableShortcuts: true // true by default
   })
 )
 

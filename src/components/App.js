@@ -1,77 +1,28 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
-import Home from './Home'
-import Config from './Config'
+import Input from './Input'
 
-const Wrapper = styled.section`
+export const Wrapper = styled.section`
   display: grid;
-  grid-template-rows: auto 50px;
-  height: 100vh;
+  grid-template-rows: 4px 40px;
+  grid-auto-rows: 32px;
 
-  nav {
+  input {
     display: flex;
-  }
-
-  a:any-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: black;
-    width: 100%;
-    background: #efefef;
-
-    &:first-child {
-      border-right: 1px solid white;
-    }
-
-    &.active {
-      background: deeppink;
-      color: white;
-    }
+    width: 250px;
+    height: 30px;
+    margin: 50px;
+    padding: 25px;
+    background-color: deeppink;
   }
 `
 
 export default class App extends Component {
-  state = {
-    showDoneTodos: true,
-  }
-
-  toggleShowDoneTodos = () => {
-    this.setState({
-      showDoneTodos: !this.state.showDoneTodos,
-    })
-  }
-
   render() {
     return (
-      <Router>
-        <Wrapper>
-          <Route
-            exact
-            path="/"
-            render={() => <Home showDoneTodos={this.state.showDoneTodos} />}
-          />
-          <Route
-            path="/config"
-            render={() => (
-              <Config
-                showDoneTodos={this.state.showDoneTodos}
-                onToggle={this.toggleShowDoneTodos}
-              />
-            )}
-          />
-          <nav>
-            <NavLink exact activeClassName="active" to="/">
-              Home
-            </NavLink>
-            <NavLink activeClassName="active" to="/config">
-              Config
-            </NavLink>
-          </nav>
-        </Wrapper>
-      </Router>
+      <Wrapper>
+        <Input onEnter={'text'} onClick={'text'} />
+      </Wrapper>
     )
   }
 }
