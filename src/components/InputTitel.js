@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Input extends Component {
+export default class InputTitel extends Component {
   handleClickEvent = event => {
     const input = event.target ? event.key === 'Enter' : event.key === 'click'
     this.props.onEnter(input.value)
@@ -13,7 +13,7 @@ export default class Input extends Component {
       <input
         onKeyUp={this.handleKeyUp}
         onClick={this.handleOnKlick}
-        placeholder="Add book"
+        placeholder="Add book titel"
       />
     )
   }

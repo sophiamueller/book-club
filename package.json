@@ -19,9 +19,6 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
-
-
-  
   "browserslist": [
     ">0.2%",
     "not dead",

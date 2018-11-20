@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Input from './Input'
+import InputTitel from './InputTitel'
+import BookCard from './BookCard'
 
 export const Wrapper = styled.section`
   display: grid;
@@ -9,11 +10,18 @@ export const Wrapper = styled.section`
 
   input {
     display: flex;
-    width: 250px;
-    height: 30px;
-    margin: 50px;
-    padding: 25px;
-    background-color: deeppink;
+    margin: 0.5em 0 3em 0;
+    font-size: 22px;
+    caret-color: lightblue;
+    color: darkblue;
+    width: 80%;
+    border: solid lightblue;
+    margin: 40px;
+    padding: 50px;
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 3px 3px lightblue;
+    }
   }
 `
 
@@ -21,7 +29,8 @@ export default class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Input onEnter={'text'} onClick={'text'} />
+        <InputTitel onEnter={'text'} onClick={'text'} />
+        <BookCard />
       </Wrapper>
     )
   }
