@@ -17,7 +17,7 @@ const SearchButton = styled.button`
 export default class Button extends Component {
   render() {
     return (
-      <SearchButton onClick={this.props.onClick}>
+      <SearchButton data-cy="Button" onClick={this.props.onClick}>
         {this.props.text}
       </SearchButton>
     )

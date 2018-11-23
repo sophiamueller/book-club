@@ -1,3 +1,4 @@
+/*global cy*/
 describe('App', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
@@ -6,13 +7,9 @@ describe('App', () => {
     cy.title().should('be', 'Book App')
   })
 
-  it('has separator with text', () => {
-    cy.get('[data-cy="Separator"')
-      .contains('TODO')
-      .should('have.lenghth', 1)
+  it('has a selected search button', () => {
+    describe('has search button', () => {
+      cy.get('[data-cy=Button]').click()
+    })
   })
-
-  /*it('has an', () => {
-    cy.get('NavLink[search="Enter new search"]').should('have.lenght', 2)
-  })*/
 })
