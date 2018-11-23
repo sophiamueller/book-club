@@ -4,22 +4,24 @@ import CardHead from './CardHead'
 import CardText from './CardText'
 import Separator from './Separator'
 
+const BookCardWrapper = styled.main`
+  border: 3px solid lightblue;
+  border-radius: 15px;
+  padding: 20px;
+  display: grid;
+  margin-left: 10px;
+  margin-right: 10px;
+`
+
 export default class BookCard extends Component {
   render() {
-    const BookCardWrapper = styled.main`
-      display: grid;
-      justify-content: center;
-      border: 1px solid darkblue;
-      border-radius: 10px;
-      padding: 100px;
-    `
-    const { autor, genere, rating, isbn, description, textInfo } = this.props
+    const { author, genre, rating, isbn, description, textInfo } = this.props
 
     return (
       <BookCardWrapper>
         <CardHead
-          autor={autor}
-          genere={genere}
+          author={author}
+          genre={genre}
           rating={rating}
           isbn={isbn}
           description={description}

@@ -6,6 +6,7 @@ import { text, boolean, number } from '@storybook/addon-knobs'
 import Input from '../components/InputTitel'
 import CardHead from '../components/CardHead'
 import CardText from '../components/CardText'
+import Button from '../components/Button'
 
 function dateKnob(name, defaultValue) {
   const stringTimestamp = date(name, defaultValue)
@@ -24,8 +25,8 @@ storiesOf('Input', module).add('Input', () => (
 storiesOf('CardHead', module).add('CardHead', () => (
   <CardHead
     titel={text('Titel:', 'Time Machine')}
-    autor={number('Autor:', 'H. G. Wells')}
-    genere={text('Genere:', 'Science-Fictio')}
+    author={number('Autor:', 'H. G. Wells')}
+    genere={text('Genre:', 'Science-Fictio')}
     description={text(
       'Inhaltsbeschreibung:',
       'Die Zeitmaschine ist ein Science-Fiction-Roman von H. G. Wells. Dieser 1895 erschienene Klassiker der Science-Fiction-Literatur ist die erste literarische Beschreibung einer Zeitreise in die Zukunft, die mittels einer Zeitmaschine bewerkstelligt wird.'
@@ -39,4 +40,8 @@ storiesOf('CardText', module).add('CardText', () => (
   <CardText
     TextInfo={text('Freie Beschreibung:', 'Das Buch war spannend und gut.')}
   />
+))
+
+storiesOf('Button', module).add('Button', () => (
+  <Button text={text('Text', 'Submit')} onClick={action('clicked')} />
 ))

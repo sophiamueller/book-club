@@ -6,22 +6,24 @@ const CardWrapper = styled.section`
   div {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: lightblue;
+    background-color: #e0f3f9;
+    border-radius: 8px;
+    margin: 10px 3px;
   }
 `
 
 export default class CardHead extends Component {
   render() {
-    const { titel, autor, genere, rating, isbn, description } = this.props
-
+    const { titel, author, genre, rating, isbn, description } = this.props
+    console.log(this.props)
     return (
       <CardWrapper>
         <h3> {titel} </h3>
         <div>
-          <span> Autor: {autor} </span>
+          <span> Autor: {author} </span>
         </div>
         <div>
-          <span> Genere: {genere} </span>
+          <span> Genere: {genre} </span>
         </div>
         <div>
           <span> Bewertung: {rating}</span>
