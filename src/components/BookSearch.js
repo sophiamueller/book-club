@@ -22,6 +22,7 @@ export default class BookSearch extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <StyledWrapper>
         <form>

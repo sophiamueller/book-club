@@ -19,6 +19,7 @@ export default class InputTitel extends Component {
       <label htmlFor={titel}>
         {label}
         <InputField
+          data-cy="InputTitle"
           ref="inputTitle"
           titel={titel}
           placeholder={placeholder}

@@ -78,7 +78,9 @@ export default class App extends Component {
             render={({ match }) => this.renderSearchResults(match.params.query)}
           />
           <nav>
-            <NavLink to="/search">Book Search</NavLink>
+            <NavLink data-cy="NavLink" to="/search">
+              Book Search
+            </NavLink>
           </nav>
         </Wrapper>
       </Router>
