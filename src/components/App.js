@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import BookCard from './BookCard'
 import BookSearch from './BookSearch'
+// import Navigation from './Navigation'
 
 export const Wrapper = styled.section`
   display: grid;
@@ -82,6 +83,7 @@ export default class App extends Component {
               Book Search
             </NavLink>
           </nav>
+          {/* <Navigation /> */}
         </Wrapper>
       </Router>
     )

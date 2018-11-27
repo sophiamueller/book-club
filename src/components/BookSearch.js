@@ -18,10 +18,12 @@ const StyledWrapper = styled.div`
 
 export default class BookSearch extends Component {
   state = {
-    value: ''
+    titleEl: ''
   }
 
   render() {
+    this.save()
+
     console.log(this.state)
     return (
       <StyledWrapper>
@@ -30,13 +32,24 @@ export default class BookSearch extends Component {
             titel="titel"
             placeholder="Buchtitel"
             label="Buchtitel: "
-            onChange={value => this.setState({ value })}
+            onChange={this.handleOnChange}
           />
-          <Link to={`/searchResults/${this.state.value}`}>
+          <Link to={`/searchResults/${this.state.titleEl}`}>
             <Button text="Suchen" />
           </Link>
         </form>
       </StyledWrapper>
+    )
+  }
+
+  handleOnChange = inputText => {
+    this.setState({ titleEl: inputText })
+  }
+
+  save() {
+    localStorage.setItem(
+      'book-club--title-inputs',
+      JSON.stringify(this.state.titleEl)
     )
   }
 }

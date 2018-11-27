@@ -13,8 +13,13 @@ const InputField = styled.input`
 `
 
 export default class InputTitel extends Component {
+  handleOnChange = event => {
+    const input = event.target
+    this.props.onChange(input.value)
+  }
+
   render() {
-    const { titel, placeholder, label, onChange } = this.props
+    const { titel, placeholder, label } = this.props
     return (
       <label htmlFor={titel}>
         {label}
@@ -23,7 +28,7 @@ export default class InputTitel extends Component {
           ref="inputTitle"
           titel={titel}
           placeholder={placeholder}
-          onChange={event => onChange(event.target.value)}
+          onChange={this.handleOnChange}
         />
       </label>
     )
