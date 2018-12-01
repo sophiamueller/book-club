@@ -24,7 +24,7 @@ export default class BookSearch extends Component {
   render() {
     this.save()
 
-    console.log(this.state)
+    console.log(this.props.suggestions)
     return (
       <StyledWrapper>
         <form>
@@ -32,8 +32,14 @@ export default class BookSearch extends Component {
             titel="titel"
             placeholder="Buchtitel"
             label="Buchtitel: "
+            ref={input => (this.search = input)}
             onChange={this.handleOnChange}
           />
+          <ul>
+            {this.props.suggestions.map(book => (
+              <li>{book.titel}</li>
+            ))}
+          </ul>
           <Link to={`/searchResults/${this.state.titleEl}`}>
             <Button text="Suchen" />
           </Link>
@@ -42,9 +48,29 @@ export default class BookSearch extends Component {
     )
   }
 
+  getInfo = () => {}
+
   handleOnChange = inputText => {
+    this.props.onChange(inputText)
     this.setState({ titleEl: inputText })
   }
+
+  // handleOnChange = () => {
+  //   console.log(this.search)
+  //   this.props.onChange(this.search.value)
+  //   this.setState(
+  //     {
+  //       titleEl: this.search.value
+  //     },
+  //     () => {
+  //       if (this.state.titleEl && this.state.titleEl.length > 1) {
+  //         if (this.state.titleEl.length % 2 === 0) {
+  //           this.getInfo()
+  //         }
+  //       }
+  //     }
+  //   )
+  // }
 
   save() {
     localStorage.setItem(

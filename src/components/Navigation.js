@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faUser } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faBook, faUser)
 
-const Navig = styled.navigation`
+const Navig = styled.nav`
   display: flex;
 
   a:any-link {
