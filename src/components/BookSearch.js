@@ -5,14 +5,35 @@ import Button from './Button'
 import { Link } from 'react-router-dom'
 
 const StyledWrapper = styled.div`
+  display: flex;
   border: 1px solid lightblue;
   border-radius: 15px;
   padding: 20px;
   form {
-    display: grid;
     grid-gap: 5px;
     align-items: start;
+    padding: 5px;
     justify-content: start;
+
+    input {
+      display: flex;
+      margin-left: 20px;
+      margin-right: 20px;
+      font-size: 22px;
+      caret-color: black;
+      color: darkgreen;
+      width: 70%;
+      border: solid black;
+      margin: 40px;
+      padding: 50px;
+      border-radius: 15px;
+      padding: 20px;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 3px 3px darkgreen;
+      }
+    }
   }
 `
 
@@ -22,14 +43,14 @@ export default class BookSearch extends Component {
   }
 
   render() {
-    this.save()
+    //this.save()
 
     console.log(this.props.suggestions)
     return (
       <StyledWrapper>
         <form>
           <InputTitel
-            titel="titel"
+            title="title"
             placeholder="Buchtitel"
             label="Buchtitel: "
             ref={input => (this.search = input)}
@@ -37,12 +58,12 @@ export default class BookSearch extends Component {
           />
           <ul>
             {this.props.suggestions.map(book => (
-              <li>{book.titel}</li>
+              <li>{book.title}</li>
             ))}
           </ul>
-          <Link to={`/searchResults/${this.state.titleEl}`}>
+          {/* <Link to={`/searchResults/${this.state.titleEl}`}>
             <Button text="Suchen" />
-          </Link>
+          </Link> */}
         </form>
       </StyledWrapper>
     )

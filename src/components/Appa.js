@@ -12,7 +12,6 @@ import Navigation from './Navigation'
 export const Wrapper = styled.section`
   display: grid;
   grid-template-rows: auto;
-  height: 100vh;
 
   input {
     display: flex;
@@ -114,26 +113,26 @@ export default class App extends Component {
     this.setState({ suggestions: suggestionsArray })
   }
 
-  // renderSearchResults = query => {
-  //   const { demoBooks } = this.state
-  //   return demoBooks
-  //     .filter(book => book.titel === query)
-  //     .map(this.renderBookCard)
-  // }
+  renderSearchResults = query => {
+    const { demoBooks } = this.state
+    return demoBooks
+      .filter(book => book.titel === query)
+      .map(this.renderBookCard)
+  }
 
-  // renderBookCard = book => {
-  //   const { author, description, genre, isbn, rating, titel, id } = book
+  renderBookCard = book => {
+    const { author, description, genre, isbn, rating, titel, id } = book
 
-  //   return (
-  //     <BookCard
-  //       key={id}
-  //       titel={titel}
-  //       author={author}
-  //       genre={genre}
-  //       rating={rating}
-  //       isbn={isbn}
-  //       description={description}
-  //     />
-  //   )
-  // }
+    return (
+      <BookCard
+        key={id}
+        titel={titel}
+        author={author}
+        genre={genre}
+        rating={rating}
+        isbn={isbn}
+        description={description}
+      />
+    )
+  }
 }

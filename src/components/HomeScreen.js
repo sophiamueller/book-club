@@ -3,9 +3,11 @@ import uid from 'uid'
 import Header from './Header'
 import BookCardContainer from './BookCardContainer'
 import BookCard from './BookCard'
+import BookSearch from './BookSearch'
 
 export default class HomeScreen extends Component {
   state = {
+    query: '',
     books: [
       {
         id: uid(),
@@ -127,9 +129,59 @@ export default class HomeScreen extends Component {
     return (
       <React.Fragment>
         <Header text={'Bücher'} />
-        <BookCardContainer>{this.renderAllBooks()}</BookCardContainer>
+        <BookSearch
+          onChange={inputText => this.searchFunction(inputText)}
+          suggestions={this.state.books.filter(book => {
+            return book.title
+              .toLowerCase()
+              .includes(this.state.query.toLowerCase())
+          })}
+        />
+        <BookCardContainer>
+          {this.state.query
+            ? this.renderSearchResults()
+            : this.renderAllBooks()}
+        </BookCardContainer>
       </React.Fragment>
     )
+  }
+
+  renderSearchResults = () => {
+    const { query, books } = this.state
+    return books
+      .filter(book => book.title.startsWith(query))
+      .sort((a, b) => (a.title < b.title ? -1 : 1))
+      .map(this.renderSingleBook)
+  }
+
+  // renderBookCard = book => {
+  //   const {
+  //     author,
+  //     description,
+  //     genre,
+  //     isbn,
+  //     rating,
+  //     title,
+  //     id,
+  //     readers
+  //   } = book
+
+  //   return (
+  //     <BookCard
+  //       key={id}
+  //       title={title}
+  //       readers={readers}
+  //       author={author}
+  //       genre={genre}
+  //       rating={rating}
+  //       isbn={isbn}
+  //       description={description}
+  //     />
+  //   )
+  // }
+
+  searchFunction = inputText => {
+    this.setState({ query: inputText })
   }
 
   renderAllBooks() {

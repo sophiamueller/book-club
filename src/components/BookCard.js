@@ -13,17 +13,20 @@ import CollapsedCard from './CollapsedCard'
 
 const ImageContainer = styled.div`
   line-height: 0;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2px;
 `
 
 const Image = styled.img`
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px;
   height: 120px;
   object-fit: cover;
-  width: 100%;
 `
 
 const Title = styled.h2`
+  width: 100%;
   align-items: center;
   display: flex;
   grid-column-start: span 3;
@@ -32,18 +35,18 @@ const Title = styled.h2`
 
 export default class BookCard extends Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     imgScr: PropTypes.string,
-    author: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    words: PropTypes.string.isRequired,
-    educational: PropTypes.bool.isRequired,
-    extraterrestials: PropTypes.bool.isRequired,
-    timeTravel: PropTypes.bool.isRequired,
-    philosophical: PropTypes.bool.isRequired,
-    happyEnd: PropTypes.bool.isRequired,
-    isExpanded: PropTypes.bool.isRequired,
-    onClick: PropTypes.func.isRequired
+    author: PropTypes.string,
+    genre: PropTypes.string,
+    words: PropTypes.string,
+    educational: PropTypes.bool,
+    extraterrestials: PropTypes.bool,
+    timeTravel: PropTypes.bool,
+    philosophical: PropTypes.bool,
+    happyEnd: PropTypes.bool,
+    isExpanded: PropTypes.bool,
+    onClick: PropTypes.func
   }
 
   static defaultProps = {
@@ -85,15 +88,21 @@ export default class BookCard extends Component {
           <BookListDetails>Autor:{author}</BookListDetails>
           <BookListDetails>Genre: {genre}</BookListDetails>
           <BookListDetails>Wörter: {words}</BookListDetails>
-          <BookListDetails>Bildungsroman: ja{educational}</BookListDetails>
           <BookListDetails>
-            Außerirdisches Leben: {extraterrestrials ? 'ja' : 'nein'}
+            {this.showBookBooleanTag(educational, 'Bildungsroman')}
+          </BookListDetails>
+          <BookListDetails>
+            {this.showBookBooleanTag(extraterrestrials, 'außerirdisches Leben')}
           </BookListDetails>
           <BookListDetails>
             {this.showBookBooleanTag(timeTravel, 'Zeitreisen')}
           </BookListDetails>
-          <BookListDetails>philosophisch: ja{philosophical}</BookListDetails>
-          <BookListDetails>Gutes Ende: ja{happyEnd}</BookListDetails>
+          <BookListDetails>
+            {this.showBookBooleanTag(philosophical, 'philosophisch')}
+          </BookListDetails>
+          <BookListDetails>
+            {this.showBookBooleanTag(happyEnd, 'Happy End')}
+          </BookListDetails>
           <CollapsedCard
             data-cy="CollapsedCard"
             className={isExpanded ? 'expand' : ''}
@@ -125,9 +134,12 @@ export default class BookCard extends Component {
     return (
       <span
         style={{
-          backgroundColor: booleanTag ? 'green' : 'red',
+          backgroundColor: booleanTag ? 'green' : 'lightgray',
           color: 'white',
-          borderRadius: '10px'
+          padding: '3px 3px',
+          margin: '2px',
+          borderRadius: '5px',
+          border: '0.5px solid green'
         }}
       >
         {tagName}
@@ -163,44 +175,9 @@ export default class BookCard extends Component {
       .map(this.renderSingleReader)
   }
 
-  // renderEducationalReader() {
-  //   return this.props.reader
-  //     .filter(p => p.educationalBook)
-  //     .sort((a, b) => (a.name < b.name ? -1 : 1))
-  //     .map(this.renderSingleReader)
-  // }
-
-  // renderExtraterrReader() {
-  //   return this.props.reader
-  //     .filter(p => p.extraterrBook)
-  //     .sort((a, b) => (a.name < b.name ? -1 : 1))
-  //     .map(this.renderSingleReader)
-  // }
-
-  // renderTimeTravelReader() {
-  //   return this.props.reader
-  //     .filter(p => p.timeTravelBook)
-  //     .sort((a, b) => (a.name < b.name ? -1 : 1))
-  //     .map(this.renderSingleReader)
-  // }
-
-  // renderphilosophicalReader() {
-  //   return this.props.reader
-  //     .filter(p => p.philosophicalBook)
-  //     .sort((a, b) => (a.name < b.name ? -1 : 1))
-  //     .map(this.renderSingleReader)
-  // }
-
-  // renderHappyEndReader() {
-  //   return this.props.reader
-  //     .filter(p => p.happyEndBook)
-  //     .sort((a, b) => (a.name < b.name ? -1 : 1))
-  //     .map(this.renderSingleReader)
-  // }
-
   renderSingleReader = reader => (
     <li
-      key={reader.key}
+      key={reader.id}
       className={reader.ownsBook ? 'owns' : ''}
       // className={reader.educationalBook ? 'educational' : ''}
       // className={reader.extraterrBook ? 'extrarrestials' : ''}
