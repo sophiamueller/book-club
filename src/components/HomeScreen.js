@@ -146,10 +146,12 @@ export default class HomeScreen extends Component {
     )
   }
 
+  SearchFunktionInput = () => {}
+
   renderSearchResults = () => {
     const { query, books } = this.state
     return books
-      .filter(book => book.title.startsWith(query))
+      .filter(book => book.title.toLowerCase().startsWith(query.toLowerCase()))
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleBook)
   }

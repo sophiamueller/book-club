@@ -12,8 +12,8 @@ const Navig = styled.nav`
 
   a:any-link {
     align-items: center;
-    background: #add8e6;
-    color: #7f7f7f;
+    background: 0;
+    color: white;
     display: flex;
     font-size: 30px;
     justify-content: center;
@@ -21,7 +21,7 @@ const Navig = styled.nav`
     width: 100%;
 
     &.active {
-      color: #0066c3;
+      color: brown;
     }
   }
 `

@@ -7,8 +7,10 @@ import Navigation from './Navigation'
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 60px auto 60px;
+  grid-template-rows: 65px 95px auto 60px;
   height: 100vh;
+  background: darkgray;
+  background-image: url('https://cdn.pixabay.com/photo/2015/09/24/12/52/silver-955496_1280.jpg');
 `
 
 export default class App extends Component {
