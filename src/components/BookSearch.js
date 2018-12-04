@@ -12,18 +12,19 @@ const StyledWrapper = styled.div`
     align-items: start;
     padding: 5px;
     justify-content: start;
-    }
+  }
 
-    input {
-      display: flex;
-      width: 100%;
-      border: 0;
-      outline: 0;
-      padding: 0;
-      transition: all 0.3s ease-in-out;
-      border-bottom: 2px solid darkgreen;
-
-      /* margin-left: 10px;
+  input {
+    display: flex;
+    width: 100%;
+    height: 4vh;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid darkgreen;
+    font-size: 14px;
+    /* margin-left: 10px;
       margin-right: 20px;
       font-size: 22px;
       caret-color: black;
@@ -35,11 +36,10 @@ const StyledWrapper = styled.div`
       border-radius: 10px;
       padding: 20px; */
 
-      &:focus {
-        border-color: darkgreen;
-        outline: none;
-        box-shadow: 0 0 250px 250px whitesmoke; 
-      }
+    &:focus {
+      border-color: darkgreen;
+      outline: none;
+      box-shadow: 0 0 350px 350px black;
     }
   }
 `

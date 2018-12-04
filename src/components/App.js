@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import styled from 'styled-components'
-import HomeScreen from './HomeScreen'
-import SearchScreen from './SearchScreen'
+import HomeScreen from '../Screens/HomeScreen'
+import ReaderScreen from '../Screens/ReaderScreen'
 import Navigation from './Navigation'
+import imgSrc from '.././images/silver-955496_1280.jpg'
 
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 65px 95px auto 60px;
   height: 100vh;
   background: darkgray;
-  background-image: url('https://cdn.pixabay.com/photo/2015/09/24/12/52/silver-955496_1280.jpg');
+  background-image: url(${imgSrc});
 `
 
 export default class App extends Component {
@@ -19,7 +20,7 @@ export default class App extends Component {
       <Router>
         <Wrapper>
           <Route exact path="/" render={() => <HomeScreen />} />
-          <Route path="/booksearch/" render={() => <SearchScreen />} />
+          <Route path="/readers" render={() => <ReaderScreen />} />
           <Navigation />
         </Wrapper>
       </Router>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import uid from 'uid'
-import Header from './Header'
-import BookCardContainer from './BookCardContainer'
-import BookCard from './BookCard'
-import BookSearch from './BookSearch'
+import Header from '../components/BookCard/Header'
+import BookCardContainer from '../components/BookCard/BookCardContainer'
+import BookCard from '../components/BookCard/BookCard'
+import BookSearch from '../components/BookSearch'
 
 export default class HomeScreen extends Component {
   state = {
@@ -146,8 +146,6 @@ export default class HomeScreen extends Component {
     )
   }
 
-  SearchFunktionInput = () => {}
-
   renderSearchResults = () => {
     const { query, books } = this.state
     return books
@@ -155,32 +153,6 @@ export default class HomeScreen extends Component {
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleBook)
   }
-
-  // renderBookCard = book => {
-  //   const {
-  //     author,
-  //     description,
-  //     genre,
-  //     isbn,
-  //     rating,
-  //     title,
-  //     id,
-  //     readers
-  //   } = book
-
-  //   return (
-  //     <BookCard
-  //       key={id}
-  //       title={title}
-  //       readers={readers}
-  //       author={author}
-  //       genre={genre}
-  //       rating={rating}
-  //       isbn={isbn}
-  //       description={description}
-  //     />
-  //   )
-  // }
 
   searchFunction = inputText => {
     this.setState({ query: inputText })
