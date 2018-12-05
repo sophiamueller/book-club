@@ -3,12 +3,14 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faUser, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBook, faUser)
+library.add(faBook, faUser, faPlus)
 
 const Navig = styled.nav`
   display: flex;
+  background: black;
+  grid-row: 4;
 
   a:any-link {
     align-items: center;
@@ -35,6 +37,9 @@ export default class Navigation extends Component {
         </NavLink>
         <NavLink activeClassName="active" to="/readers/">
           <FontAwesomeIcon icon="user" />
+        </NavLink>
+        <NavLink activeClassName="active" to="/form/">
+          <FontAwesomeIcon icon="plus" />
         </NavLink>
       </Navig>
     )

@@ -13,7 +13,7 @@ import CollapsedCard from './CollapsedCard'
 
 const ImageContainer = styled.div`
   line-height: 0;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   margin: 2px;
@@ -28,8 +28,8 @@ const Image = styled.img`
 const Title = styled.h2`
   width: 100%;
   align-items: center;
-  display: flex;
-  grid-column-start: span 3;
+  /* display: flex;
+  grid-column-start: span 3; */
   margin: 0;
 `
 
@@ -83,26 +83,32 @@ export default class BookCard extends Component {
             onClick={onClick}
             className={isExpanded ? 'rotate' : ''}
           >
-            <FontAwesomeIcon icon="angle-down" />
+            <FontAwesomeIcon icon="book" />
           </ToggleIcon>
-          <BookListDetails>Autor:{author}</BookListDetails>
-          <BookListDetails>Genre: {genre}</BookListDetails>
-          <BookListDetails>Wörter: {words}</BookListDetails>
-          <BookListDetails>
-            {this.showBookBooleanTag(educational, 'Bildungsroman')}
-          </BookListDetails>
-          <BookListDetails>
-            {this.showBookBooleanTag(extraterrestrials, 'außerirdisches Leben')}
-          </BookListDetails>
-          <BookListDetails>
-            {this.showBookBooleanTag(timeTravel, 'Zeitreisen')}
-          </BookListDetails>
-          <BookListDetails>
-            {this.showBookBooleanTag(philosophical, 'philosophisch')}
-          </BookListDetails>
-          <BookListDetails>
-            {this.showBookBooleanTag(happyEnd, 'Happy End')}
-          </BookListDetails>
+          <div>
+            <BookListDetails>Autor:{author}</BookListDetails>
+            <BookListDetails>Genre: {genre}</BookListDetails>
+            <BookListDetails>Wörter: {words}</BookListDetails>
+            <BookListDetails>
+              {this.showBookBooleanTag(educational, 'Bildungsroman')}
+            </BookListDetails>
+            <BookListDetails>
+              {this.showBookBooleanTag(
+                extraterrestrials,
+                'außerirdisches Leben'
+              )}
+            </BookListDetails>
+            <BookListDetails>
+              {this.showBookBooleanTag(timeTravel, 'Zeitreisen')}
+            </BookListDetails>
+            <BookListDetails>
+              {this.showBookBooleanTag(philosophical, 'philosophisch')}
+            </BookListDetails>
+            <BookListDetails>
+              {this.showBookBooleanTag(happyEnd, 'Happy End')}
+            </BookListDetails>
+          </div>
+
           <CollapsedCard
             data-cy="CollapsedCard"
             className={isExpanded ? 'expand' : ''}

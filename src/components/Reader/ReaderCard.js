@@ -11,6 +11,7 @@ import CardContent from '../BookCard/CardContent'
 import CollapsedCard from '../BookCard/CollapsedCard'
 
 const ImageContainer = styled.div`
+  display: grid;
   grid-row-start: span 2;
   height: 80px;
   width: 80px;

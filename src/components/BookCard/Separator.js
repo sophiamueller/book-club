@@ -28,6 +28,9 @@ export default class Separator extends Component {
   render() {
     return (
       <Wrapper>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi ipsa,
+        nisi et possimus porro iusto temporibus libero, dolor facere maxime
+        nulla ab incidunt dolorem eum quos rem assumenda vel quis?
         <Line className="left" />
         <Text>{this.props.text}</Text>
         <Line className="right" />

@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
 export default styled.section`
-  display: flex;
-  flex-flow: row wrap;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr auto;
-  grid-template-rows: auto;
-  padding: 20px;
+  /* display: grid;
+
+  /* flex-flow: row wrap; */
+  /* grid-gap: 10px; */
+  /* height: auto; */
+  /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+
+  padding: 0;
+  margin: 10px 0;
+  background: hotpink;
 `
