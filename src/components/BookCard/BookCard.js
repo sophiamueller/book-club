@@ -113,6 +113,9 @@ export default class BookCard extends Component {
             data-cy="CollapsedCard"
             className={isExpanded ? 'expand' : ''}
           >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+            ipsa, nisi et possimus porro iusto temporibus libero, dolor facere
+            maxime nulla ab incidunt dolorem eum quos rem assumenda vel quis?
             <Separator />
             <TagMain text="Begeisterte/r Leser/in" />
             <TagIcon>
