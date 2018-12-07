@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Checkbox from '../components/Form/Checkbox'
+import Input from '../components/Form/Input'
 
-const FormWrapper = styled.div`
-  max-width: 350px;
+const FormInput = styled.div`
+  max-width: 600px;
   margin: 0 auto;
   background: whitesmoke;
   box-shadow: 0 8px 16px rgba(0, 40, 100, 0.4);
@@ -22,11 +24,13 @@ const FormWrapper = styled.div`
     display: grid;
     grid-gap: 8px;
   }
-  .checkbox {
-    display: grid;
+  Checkbox {
+    display: flex;
+
+    /* display: grid;
     grid-template-columns: auto 1fr;
-    grid-gap: 5px;
-    color: black;
+    grid-gap: 2px;
+    color: black; */
   }
 
   button {
@@ -50,7 +54,7 @@ const FormWrapper = styled.div`
 
   button:hover,
   button:focus {
-    background: white;
+    background: lightgray;
   }
 
   button:focus {
@@ -68,11 +72,11 @@ const FormWrapper = styled.div`
     border-radius: 4px;
     font-size: 14px;
     padding-left: 4px;
-    background: white;
+    background: lightgray;
   }
 
   textarea:focus {
-    background: white;
+    background: lightgray;
   }
 
   input:focus {
@@ -85,7 +89,7 @@ const FormWrapper = styled.div`
     border-radius: 4px;
     font-size: 14px;
     padding-left: 4px;
-    background: white;
+    background: lightgray;
   }
 
   h2 {
@@ -113,30 +117,163 @@ const FormWrapper = styled.div`
   }
 `
 
-export default class BookForm extends React.Component {
+export default class FormScreen extends React.Component {
+  // static propTypes = {
+  //   onChange: PropTypes.func.isRequired,
+  //   onSubmit: PropTypes.func.isRequired,
+  //   preventDefault: PropTypes.func.isRequired
+  // }
+
+  // constructor(props) {
+  //   super(props)
+  //   this.titleInputRef = React.createRef()
+  //   this.authorInputRef = React.createRef()
+  //   this.genreInputRef = React.createRef()
+  //   this.wordsInputRef = React.createRef()
+  //   this.descriptionInputRef = React.createRef()
+  //   this.ratingInputRef = React.createRef()
+  //   this.freeTextInputRef = React.createRef()
+  //   this.educationalCheckboxRef = React.createRef()
+  //   this.extraterrestialsCheckboxRef = React.createRef()
+  //   this.TimeTravelCheckboxRef = React.createRef()
+  //   this.philosophicalCheckboxRef = React.createRef()
+  //   this.happyEndCheckboxRef = React.createRef()
+  // }
+
+  state = {
+    title: '',
+    author: '',
+    genre: '',
+    words: '',
+    description: '',
+    rating: ''
+  }
+
+  handleSubmitForm = event => {
+    event.preventDefault()
+    this.props.onSubmit(this.state)
+    // this.titleInputRef.current.value = ''
+    // this.authorInputRef.current.value = ''
+    // this.genreInputRef.current.value = ''
+    // this.wordsInputRef.current.value = ''
+    // this.descriptionInputRef.current.value = ''
+    // this.ratingInputRef.current.value = ''
+    // this.freeTextInputRef.current.value = ''
+  }
+
   render() {
+    const {
+      onCheck,
+      // onChange,
+      // preventDefault,
+      displayValueCheckboxEducational,
+      displayValueCheckboxExtraterrstials,
+      displayValueCheckboxTimeTravel,
+      displayValueCheckboxPhilosophical,
+      displayValueCheckboxHappyEnd
+    } = this.props
+
     return (
-      <FormWrapper>
-        <form id="contact" action="" method="post">
+      <FormInput>
+        <form id="bookCard" onSubmit={this.handleSubmit}>
           <h2>Füge ein neues Buch hinzu:</h2>
           <h3>Fülle alle relevanten Felder aus </h3>
-          <input placeholder="Buchtitel" type="text" required />
-          <input placeholder="Autor" type="text" required />
-          <input placeholder="Genre" type="text" required />
-          <input placeholder="Buchbeschreibung" type="text" required />
-          <input
-            placeholder="Deine Bewertung: 5=sehr gut bis 1=schlecht"
+          <Input
+            placeholder="Buchtitel"
+            name="title"
+            type="text"
+            onChange={event => this.setState({ title: event.target.value })}
+          />
+          <Input
+            placeholder="Autor"
+            name="author"
+            type="text"
+            onChange={this.handleChange}
+            required
+          />
+          <Input
+            placeholder="Genre"
+            name="genre"
+            type="text"
+            onChange={this.handleChange}
+            required
+          />
+          <Input
+            placeholder="Wörter"
+            name="words"
             type="number"
+            onChange={this.handleChange}
+            required
+          />
+          <Input
+            placeholder="Buchbeschreibung"
+            name="descrition"
+            type="text"
+            onChange={this.handleChange}
+            required
+          />
+          <Input
+            placeholder="Deine Bewertung: 5=sehr gut bis 1=schlecht"
+            name="rating"
+            type="number"
+            onChange={this.handleChange}
             required
           />
 
           <label>
             <h6>Meinung zum Buch</h6>
-            <textarea placeholder="Schreib deine Meinung hier..." required />
+            <Input
+              placeholder="Schreib deine Meinung hier..."
+              name="freeText"
+              onChange={this.handleChange}
+            />
           </label>
-          <button data-submit="...Senden">Hinzufügen</button>
+
+          <Checkbox
+            onCheck={onCheck}
+            name="educational"
+            label="Bildungsroman"
+            inputRef={this.educationalCheckboxRef}
+            displayValue={displayValueCheckboxEducational}
+          />
+
+          <Checkbox
+            onCheck={onCheck}
+            name="extraterrestials"
+            label="außerirdisches Leben"
+            inputRef={this.extraterrestialsCheckboxRef}
+            displayValue={displayValueCheckboxExtraterrstials}
+          />
+
+          <Checkbox
+            onCheck={onCheck}
+            name="timeTravel"
+            label="Zeitreisen"
+            inputRef={this.timeTravelCheckboxRef}
+            displayValue={displayValueCheckboxTimeTravel}
+          />
+
+          <Checkbox
+            onCheck={onCheck}
+            name="philosophical"
+            label="philosophisch"
+            inputRef={this.philosophicalCheckboxRef}
+            displayValue={displayValueCheckboxPhilosophical}
+          />
+
+          <Checkbox
+            onCheck={onCheck}
+            name="happyEnd"
+            label="Happy End"
+            inputRef={this.happyEndCheckboxRef}
+            displayValue={displayValueCheckboxHappyEnd}
+          />
+
+          <button onClick={this.handleSubmitForm} text="Senden">
+            Hinzufügen
+          </button>
         </form>
-      </FormWrapper>
+      </FormInput>
     )
   }
 }

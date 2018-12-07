@@ -26,6 +26,7 @@
     "babel-loader": "^8.0.4",
     "babel-plugin-jsx-remove-data-test-id": "^1.2.1",
     "babel-plugin-styled-components": "1.8.0",
+    "prop-types": "^15.6.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-form": "^3.5.6",

@@ -185,15 +185,7 @@ export default class BookCard extends Component {
   }
 
   renderSingleReader = reader => (
-    <li
-      key={reader.id}
-      className={reader.ownsBook ? 'owns' : ''}
-      // className={reader.educationalBook ? 'educational' : ''}
-      // className={reader.extraterrBook ? 'extrarrestials' : ''}
-      // className={reader.timeTravelBook ? 'timeTravel' : ''}
-      // className={reader.philosophicalBook ? 'philosophical' : ''}
-      // className={reader.happyEndBook ? 'happyEnd' : ''}
-    >
+    <li key={reader.id} className={reader.ownsBook ? 'owns' : ''}>
       {reader.name}
     </li>
   )
