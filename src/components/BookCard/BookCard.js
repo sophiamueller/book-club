@@ -6,8 +6,8 @@ import SingleCard from './SingleCard'
 import BookListDetails from './BookListDetails'
 import ToggleIcon from './ToggleIcon'
 import Separator from './Separator'
-import TagIcon from './TagIcon'
-import TagMain from './TagMain'
+// import TagIcon from './TagIcon'
+// import TagMain from './TagMain'
 import CardContent from './CardContent'
 import CollapsedCard from './CollapsedCard'
 
@@ -68,7 +68,7 @@ export default class BookCard extends Component {
       happyEnd,
       isExpanded,
       onClick
-    } = this.props
+    } = this.props.data
     console.log('extrater', extraterrestrials)
 
     return (
@@ -117,7 +117,7 @@ export default class BookCard extends Component {
             ipsa, nisi et possimus porro iusto temporibus libero, dolor facere
             maxime nulla ab incidunt dolorem eum quos rem assumenda vel quis?
             <Separator />
-            <TagMain text="Begeisterte/r Leser/in" />
+            {/* <TagMain text="Begeisterte/r Leser/in" />
             <TagIcon>
               {this.countSelectedReader('like') >= 1 ? (
                 this.renderLikedByReader()
@@ -132,7 +132,7 @@ export default class BookCard extends Component {
               ) : (
                 <span>Kein Leser wurde ausgewählt</span>
               )}
-            </TagIcon>
+            </TagIcon> */}
           </CollapsedCard>
         </CardContent>
       </SingleCard>
@@ -159,7 +159,8 @@ export default class BookCard extends Component {
   countSelectedReader(criteria) {
     let length
 
-    const { readers } = this.props
+    const { readers } = this.props.data
+    console.log(this.props.data)
 
     if (criteria === 'like') {
       length = readers.filter(p => p.likesBook).length
@@ -171,14 +172,15 @@ export default class BookCard extends Component {
   }
 
   renderLikedByReader() {
-    return this.props.readers
+    console.log(this.props.data)
+    return this.props.data.readers
       .filter(p => p.likesBook)
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSingleReader)
   }
 
   renderOwnedByReader() {
-    return this.props.reader
+    return this.props.data.reader
       .filter(p => p.ownsBook)
       .sort((a, b) => (a.name < b.name ? -1 : 1))
       .map(this.renderSingleReader)

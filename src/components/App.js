@@ -20,7 +20,6 @@ const Wrapper = styled.div`
 
 export default class App extends Component {
   state = {
-    newBook: {},
     books: [
       {
         id: uid(),
@@ -118,7 +117,20 @@ export default class App extends Component {
         timeTravel: false,
         philosophical: false,
         happyEnd: false,
-        readers: []
+        readers: [
+          {
+            id: uid(),
+            name: 'Michael',
+            likesBook: false,
+            ownsBook: false
+          },
+          {
+            id: uid(),
+            name: 'Elke',
+            likesBook: false,
+            ownsBook: true
+          }
+        ]
       },
       {
         id: uid(),
@@ -133,9 +145,32 @@ export default class App extends Component {
         timeTravel: true,
         philosophical: true,
         happyEnd: true,
-        readers: []
+        readers: [
+          {
+            id: uid(),
+            name: 'Michael',
+            likesBook: false,
+            ownsBook: false
+          },
+          {
+            id: uid(),
+            name: 'Elke',
+            likesBook: false,
+            ownsBook: true
+          }
+        ]
       }
     ]
+  }
+
+  addNewBook = newBook => {
+    this.setState({
+      books: [newBook, ...this.state.books]
+    })
+  }
+
+  renderBookData = () => {
+    return this.state.books
   }
 
   render() {
@@ -151,9 +186,7 @@ export default class App extends Component {
           <Route
             path="/form"
             render={() => (
-              <FormScreen
-                onSubmit={bookObj => this.setState({ newBook: bookObj })}
-              />
+              <FormScreen newBook={book => this.addNewBook(book)} />
             )}
           />
           <Navigation />

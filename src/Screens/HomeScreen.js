@@ -43,6 +43,7 @@ export default class HomeScreen extends Component {
   }
 
   renderAllBooks() {
+    console.log(this.props.books)
     return this.props.books
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleBook)
@@ -51,7 +52,7 @@ export default class HomeScreen extends Component {
   renderSingleBook = book => (
     <BookCard
       key={book.id}
-      {...book}
+      data={book}
       onClick={() => this.toggleExpand(book.id)}
     />
   )

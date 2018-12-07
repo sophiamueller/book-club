@@ -125,33 +125,47 @@ export default class FormScreen extends React.Component {
   // }
 
   // constructor(props) {
-  //   super(props)
-  //   this.titleInputRef = React.createRef()
-  //   this.authorInputRef = React.createRef()
-  //   this.genreInputRef = React.createRef()
-  //   this.wordsInputRef = React.createRef()
-  //   this.descriptionInputRef = React.createRef()
-  //   this.ratingInputRef = React.createRef()
-  //   this.freeTextInputRef = React.createRef()
-  //   this.educationalCheckboxRef = React.createRef()
-  //   this.extraterrestialsCheckboxRef = React.createRef()
-  //   this.TimeTravelCheckboxRef = React.createRef()
-  //   this.philosophicalCheckboxRef = React.createRef()
-  //   this.happyEndCheckboxRef = React.createRef()
+  // super(props)
+  // this.titleInputRef = React.createRef()
+  // this.authorInputRef = React.createRef()
+  // this.genreInputRef = React.createRef()
+  // this.wordsInputRef = React.createRef()
+  // this.descriptionInputRef = React.createRef()
+  // this.ratingInputRef = React.createRef()
+  // this.freeTextInputRef = React.createRef()
+  // this.educationalCheckboxRef = React.createRef()
+  // this.extraterrestialsCheckboxRef = React.createRef()
+  // this.TimeTravelCheckboxRef = React.createRef()
+  // this.philosophicalCheckboxRef = React.createRef()
+  // this.happyEndCheckboxRef = React.createRef()
   // }
 
   state = {
-    title: '',
-    author: '',
-    genre: '',
-    words: '',
-    description: '',
-    rating: ''
+    book: {
+      title: '',
+      author: '',
+      genre: '',
+      words: '',
+      description: '',
+      rating: ''
+    }
+  }
+
+  title = React.createRef()
+
+  updateInput = event => {
+    const input = event.target
+
+    this.setState({
+      book: { ...this.state.book, [input.name]: input.value }
+    })
   }
 
   handleSubmitForm = event => {
     event.preventDefault()
-    this.props.onSubmit(this.state)
+
+    this.props.newBook(this.state.book)
+    // this.props.onSubmit(this.state)
     // this.titleInputRef.current.value = ''
     // this.authorInputRef.current.value = ''
     // this.genreInputRef.current.value = ''
@@ -175,14 +189,16 @@ export default class FormScreen extends React.Component {
 
     return (
       <FormInput>
-        <form id="bookCard" onSubmit={this.handleSubmit}>
+        <form id="bookCard">
           <h2>Füge ein neues Buch hinzu:</h2>
           <h3>Fülle alle relevanten Felder aus </h3>
           <Input
+            ref={this.title}
             placeholder="Buchtitel"
             name="title"
             type="text"
-            onChange={event => this.setState({ title: event.target.value })}
+            onChange={this.updateInput}
+            required
           />
           <Input
             placeholder="Autor"
@@ -269,9 +285,7 @@ export default class FormScreen extends React.Component {
             displayValue={displayValueCheckboxHappyEnd}
           />
 
-          <button onClick={this.handleSubmitForm} text="Senden">
-            Hinzufügen
-          </button>
+          <button onClick={this.handleSubmitForm}>Hinzufügen</button>
         </form>
       </FormInput>
     )
