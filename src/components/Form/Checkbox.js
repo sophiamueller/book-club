@@ -8,17 +8,25 @@ export default class Checkbox extends Component {
   //     onCheck: PropTypes.func.isRequired
   //   }
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      checked: false
+    }
+  }
+
   render() {
-    const { name, label, onCheck, inputRef, displayValue } = this.props
+    const { name, label, onCheck, inputRef, target, displayValue } = this.props
 
     return (
       <div htmlFor={name}>
         <input
+          checked={displayValue}
           type="checkbox"
+          target={target}
           ref={inputRef}
           name={name}
           onChange={onCheck}
-          checked={displayValue}
         />
         {label}
       </div>

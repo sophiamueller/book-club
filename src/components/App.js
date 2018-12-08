@@ -160,10 +160,41 @@ export default class App extends Component {
           }
         ]
       }
-    ]
+    ],
+    creationFormData: {
+      title: '',
+      author: '',
+      genre: '',
+      words: '',
+      description: '',
+      rating: '',
+      educational: false,
+      extraterrestrials: false,
+      timeTravel: false,
+      philosophical: false,
+      happyEnd: false
+    }
   }
 
-  addNewBook = newBook => {
+  resetFormValues = () => {
+    this.setState({
+      title: '',
+      author: '',
+      genre: '',
+      words: '',
+      description: '',
+      rating: '',
+      educational: false,
+      extraterrestrials: false,
+      timeTravel: false,
+      philosophical: false,
+      happyEnd: false
+    })
+  }
+
+  addNewBook = () => {
+    const newBook = this.state.creationFormData
+
     this.setState({
       books: [newBook, ...this.state.books]
     })
@@ -171,6 +202,33 @@ export default class App extends Component {
 
   renderBookData = () => {
     return this.state.books
+  }
+
+  handleChange = event => {
+    this.setState({
+      creationFormData: {
+        ...this.state.creationFormData,
+        [event.target.name]: event.target.value
+      }
+    })
+  }
+
+  handleCheck = event => {
+    const checkBoxChecked = event.target.checked ? true : false
+
+    this.setState({
+      creationFormData: {
+        ...this.state.creationFormData,
+        [event.target.name]: checkBoxChecked
+      }
+    })
+  }
+
+  SaveToLocalStorage = () => {
+    localStorage.setItem(
+      'book-club',
+      JSON.stringify(this.state.creationFormData)
+    )
   }
 
   render() {
@@ -186,7 +244,15 @@ export default class App extends Component {
           <Route
             path="/form"
             render={() => (
-              <FormScreen newBook={book => this.addNewBook(book)} />
+              <FormScreen
+                newBook={this.addNewBook}
+                onChange={this.handleChange}
+                onCheck={this.handleCheck}
+                displayValueCheckboxEducational={
+                  this.state.creationFormData.eductional
+                }
+                resetFormValues={this.resetFormValues}
+              />
             )}
           />
           <Navigation />

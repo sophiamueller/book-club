@@ -41,7 +41,7 @@ export default class BookCard extends Component {
     genre: PropTypes.string,
     words: PropTypes.string,
     educational: PropTypes.bool,
-    extraterrestials: PropTypes.bool,
+    extraterrestrials: PropTypes.bool,
     timeTravel: PropTypes.bool,
     philosophical: PropTypes.bool,
     happyEnd: PropTypes.bool,

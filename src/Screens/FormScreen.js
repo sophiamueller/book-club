@@ -118,70 +118,25 @@ const FormInput = styled.div`
 `
 
 export default class FormScreen extends React.Component {
-  // static propTypes = {
-  //   onChange: PropTypes.func.isRequired,
-  //   onSubmit: PropTypes.func.isRequired,
-  //   preventDefault: PropTypes.func.isRequired
-  // }
-
-  // constructor(props) {
-  // super(props)
-  // this.titleInputRef = React.createRef()
-  // this.authorInputRef = React.createRef()
-  // this.genreInputRef = React.createRef()
-  // this.wordsInputRef = React.createRef()
-  // this.descriptionInputRef = React.createRef()
-  // this.ratingInputRef = React.createRef()
-  // this.freeTextInputRef = React.createRef()
-  // this.educationalCheckboxRef = React.createRef()
-  // this.extraterrestialsCheckboxRef = React.createRef()
-  // this.TimeTravelCheckboxRef = React.createRef()
-  // this.philosophicalCheckboxRef = React.createRef()
-  // this.happyEndCheckboxRef = React.createRef()
-  // }
-
-  state = {
-    book: {
-      title: '',
-      author: '',
-      genre: '',
-      words: '',
-      description: '',
-      rating: ''
-    }
-  }
-
   title = React.createRef()
 
-  updateInput = event => {
-    const input = event.target
-
-    this.setState({
-      book: { ...this.state.book, [input.name]: input.value }
-    })
+  handleSubmitForm = event => {
+    event.preventDefault(event)
+    this.props.newBook()
   }
 
-  handleSubmitForm = event => {
-    event.preventDefault()
-
-    this.props.newBook(this.state.book)
-    // this.props.onSubmit(this.state)
-    // this.titleInputRef.current.value = ''
-    // this.authorInputRef.current.value = ''
-    // this.genreInputRef.current.value = ''
-    // this.wordsInputRef.current.value = ''
-    // this.descriptionInputRef.current.value = ''
-    // this.ratingInputRef.current.value = ''
-    // this.freeTextInputRef.current.value = ''
+  ComponentDidMount() {
+    this.props.resetFormValues()
   }
 
   render() {
     const {
+      onChange,
       onCheck,
-      // onChange,
+
       // preventDefault,
       displayValueCheckboxEducational,
-      displayValueCheckboxExtraterrstials,
+      displayValueCheckboxExtraterrestrials,
       displayValueCheckboxTimeTravel,
       displayValueCheckboxPhilosophical,
       displayValueCheckboxHappyEnd
@@ -197,43 +152,38 @@ export default class FormScreen extends React.Component {
             placeholder="Buchtitel"
             name="title"
             type="text"
-            onChange={this.updateInput}
-            required
+            onChange={onChange}
+            required={true}
           />
           <Input
             placeholder="Autor"
             name="author"
             type="text"
-            onChange={this.handleChange}
-            required
+            onChange={onChange}
           />
           <Input
             placeholder="Genre"
             name="genre"
             type="text"
-            onChange={this.handleChange}
-            required
+            onChange={onChange}
           />
           <Input
             placeholder="Wörter"
             name="words"
             type="number"
-            onChange={this.handleChange}
-            required
+            onChange={onChange}
           />
           <Input
             placeholder="Buchbeschreibung"
-            name="descrition"
+            name="description"
             type="text"
-            onChange={this.handleChange}
-            required
+            onChange={onChange}
           />
           <Input
             placeholder="Deine Bewertung: 5=sehr gut bis 1=schlecht"
             name="rating"
             type="number"
-            onChange={this.handleChange}
-            required
+            onChange={onChange}
           />
 
           <label>
@@ -241,7 +191,7 @@ export default class FormScreen extends React.Component {
             <Input
               placeholder="Schreib deine Meinung hier..."
               name="freeText"
-              onChange={this.handleChange}
+              onChange={onChange}
             />
           </label>
 
@@ -255,10 +205,10 @@ export default class FormScreen extends React.Component {
 
           <Checkbox
             onCheck={onCheck}
-            name="extraterrestials"
+            name="extraterrestrials"
             label="außerirdisches Leben"
-            inputRef={this.extraterrestialsCheckboxRef}
-            displayValue={displayValueCheckboxExtraterrstials}
+            inputRef={this.extraterrestrialsCheckboxRef}
+            displayValue={displayValueCheckboxExtraterrestrials}
           />
 
           <Checkbox
