@@ -53,21 +53,7 @@ export default class HomeScreen extends Component {
     <BookCard
       key={book.id}
       data={book}
-      onClick={() => this.toggleExpand(book.id)}
+      onClick={() => this.props.toggleExpand(book.id)}
     />
   )
-
-  toggleExpand = id => {
-    const { books } = this.props
-    const index = books.findIndex(g => g.id === id)
-    const book = books[index]
-    const updatedBooks = [
-      ...books.slice(0, index),
-      { ...book, isExpanded: !book.isExpanded },
-      ...books.slice(index + 1)
-    ]
-    this.setState({
-      books: updatedBooks
-    })
-  }
 }

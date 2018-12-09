@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import uid from 'uid'
-
 import HomeScreen from '../Screens/HomeScreen'
 import ReaderScreen from '../Screens/ReaderScreen'
 import FormScreen from '../Screens/FormScreen'
-
 import Navigation from './Navigation'
 import imgSrc from '.././images/decorative-1801432_1280.png'
+import { getBook, postBook, deletebook, patchBook } from '../services/books'
 
 const Wrapper = styled.div`
   display: grid;
@@ -195,9 +194,13 @@ export default class App extends Component {
   addNewBook = () => {
     const newBook = this.state.creationFormData
 
-    this.setState({
-      books: [newBook, ...this.state.books]
-    })
+    postBook(newBook)
+      .then(newBook => {
+        this.setState({
+          books: [newBook, ...this.state.books]
+        })
+      })
+      .then(this.resetFormValues)
   }
 
   renderBookData = () => {
@@ -231,6 +234,28 @@ export default class App extends Component {
     )
   }
 
+  loadFromLocalStorage() {
+    try {
+      return JSON.parse(localStorage.getItem('book-club'))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  toggleExpand = id => {
+    const { books } = this.props
+    const index = books.findIndex(g => g.id === id)
+    const book = books[index]
+    const updatedBooks = [
+      ...books.slice(0, index),
+      { ...book, isExpanded: !book.isExpanded },
+      ...books.slice(index + 1)
+    ]
+    this.setState({
+      books: updatedBooks
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -238,7 +263,12 @@ export default class App extends Component {
           <Route
             exact
             path="/"
-            render={() => <HomeScreen books={this.state.books} />}
+            render={() => (
+              <HomeScreen
+                books={this.state.books}
+                toggleExpand={this.toggleExpand}
+              />
+            )}
           />
           <Route path="/readers" render={() => <ReaderScreen />} />
           <Route
