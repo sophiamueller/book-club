@@ -66,8 +66,7 @@ export default class BookCard extends Component {
       timeTravel,
       philosophical,
       happyEnd,
-      isExpanded,
-      onClick
+      isExpanded
     } = this.props.data
     console.log('extrater', extraterrestrials)
 
@@ -80,7 +79,7 @@ export default class BookCard extends Component {
           <Title>{title}</Title>
           <ToggleIcon
             data-cy="Toggle"
-            onClick={onClick}
+            onClick={this.props.onClick}
             className={isExpanded ? 'rotate' : ''}
           >
             <FontAwesomeIcon icon="book" />

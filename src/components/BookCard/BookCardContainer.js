@@ -15,5 +15,4 @@ export default styled.section`
   margin-top: 20px;
   padding: 0 20px;
   overflow-y: scroll;
-  background: yellow;
 `

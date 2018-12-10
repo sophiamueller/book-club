@@ -7,7 +7,7 @@ import ToggleIcon from './ToggleIcon'
 import Separator from '../BookCard/Separator'
 import TagListHeading from './TagListHeading'
 import TagStyle from './TagStyle'
-import CardContent from '../BookCard/CardContent'
+import ReaderCardContent from '../Reader/ReaderCardContent'
 import CollapsedCard from '../BookCard/CollapsedCard'
 
 const ImageContainer = styled.div`
@@ -54,9 +54,10 @@ export default class ReaderCard extends Component {
 
   render() {
     const { name, imgScr, userName, isExpanded, onClick } = this.props
+    console.log(this.props.name)
     return (
       <section data-cy="ReaderCard">
-        <CardContent>
+        <ReaderCardContent>
           <ImageContainer>
             <Image src={imgScr} alt="" />
           </ImageContainer>
@@ -66,7 +67,7 @@ export default class ReaderCard extends Component {
             onClick={onClick}
             className={isExpanded ? 'rotate' : ''}
           >
-            <FontAwesomeIcon icon="angle-down" />
+            <FontAwesomeIcon icon="book" />
           </ToggleIcon>
           <Username>{userName}</Username>
           <CollapsedCard
@@ -91,7 +92,7 @@ export default class ReaderCard extends Component {
               )}
             </TagStyle>
           </CollapsedCard>
-        </CardContent>
+        </ReaderCardContent>
       </section>
     )
   }

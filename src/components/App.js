@@ -7,7 +7,7 @@ import ReaderScreen from '../Screens/ReaderScreen'
 import FormScreen from '../Screens/FormScreen'
 import Navigation from './Navigation'
 import imgSrc from '.././images/decorative-1801432_1280.png'
-import { getBook, postBook, deletebook, patchBook } from '../services/books'
+import { postBooks } from '../services/books'
 
 const Wrapper = styled.div`
   display: grid;
@@ -194,7 +194,7 @@ export default class App extends Component {
   addNewBook = () => {
     const newBook = this.state.creationFormData
 
-    postBook(newBook)
+    postBooks(newBook)
       .then(newBook => {
         this.setState({
           books: [newBook, ...this.state.books]
@@ -243,7 +243,7 @@ export default class App extends Component {
   }
 
   toggleExpand = id => {
-    const { books } = this.props
+    const { books } = this.state
     const index = books.findIndex(g => g.id === id)
     const book = books[index]
     const updatedBooks = [
