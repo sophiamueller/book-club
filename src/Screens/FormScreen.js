@@ -159,20 +159,17 @@ export default class FormScreen extends React.Component {
             placeholder="Autor"
             name="author"
             type="text"
+            required={true}
             onChange={onChange}
           />
           <Input
             placeholder="Genre"
             name="genre"
             type="text"
+            required={true}
             onChange={onChange}
           />
-          <Input
-            placeholder="Wörter"
-            name="words"
-            type="number"
-            onChange={onChange}
-          />
+
           <Input
             placeholder="Buchbeschreibung"
             name="description"
@@ -180,20 +177,18 @@ export default class FormScreen extends React.Component {
             onChange={onChange}
           />
           <Input
-            placeholder="Deine Bewertung: 5=sehr gut bis 1=schlecht"
-            name="rating"
-            type="number"
+            placeholder="user"
+            name="reader"
+            type="text"
             onChange={onChange}
           />
 
-          <label>
-            <h6>Meinung zum Buch</h6>
-            <Input
-              placeholder="Schreib deine Meinung hier..."
-              name="freeText"
-              onChange={onChange}
-            />
-          </label>
+          <Input
+            placeholder="Schreib deine Meinung hier..."
+            name="freeText"
+            type="text"
+            onChange={onChange}
+          />
 
           <Checkbox
             onCheck={onCheck}

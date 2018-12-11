@@ -7,10 +7,11 @@ import {
   faPastafarianism,
   faBook,
   faUser,
-  faPlus
+  faPlus,
+  faAngleDoubleDown
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBook, faUser, faPlus, faPastafarianism)
+library.add(faBook, faUser, faPlus, faPastafarianism, faAngleDoubleDown)
 
 const Navig = styled.nav`
   display: flex;

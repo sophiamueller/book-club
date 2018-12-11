@@ -17,7 +17,7 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header text={'Bücher'} />
+        <Header text={'Book Club'} />
         <Scroller>
           <BookSearch
             onChange={inputText => this.searchFunction(inputText)}
@@ -50,7 +50,6 @@ export default class HomeScreen extends Component {
   }
 
   renderAllBooks() {
-    console.log(this.props.books)
     return this.props.books
       .sort((a, b) => (a.title < b.title ? -1 : 1))
       .map(this.renderSingleBook)

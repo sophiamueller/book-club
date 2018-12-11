@@ -6,11 +6,11 @@ export default styled.ul`
   padding: 0;
 
   li {
-    background: #eaeaea;
+    background: brown;
     border-radius: 5px;
-    color: #5f6368;
+    color: white;
     display: inline-block;
-    margin: 5px 10px 5px 0;
+    margin: 5px 5px 5px 0;
     padding: 5px;
   }
 

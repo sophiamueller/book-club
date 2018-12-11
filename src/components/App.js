@@ -32,85 +32,89 @@ export default class App extends Component {
         extraterrestrials: false,
         timeTravel: false,
         philosophical: true,
-        happyEnd: true,
-        readers: [
-          {
-            id: uid(),
-            name: 'Arne',
-            likesBook: false,
-            ownsBook: true,
-            educationalBook: true
-          },
-          {
-            id: uid(),
-            name: 'Emilia',
-            likesBook: false,
-            ownsBook: true
-          },
-          {
-            id: uid(),
-            name: 'Lieselotte',
-            likesBook: true,
-            ownsBook: true
-          },
-          {
-            id: uid(),
-            name: 'Karl',
-            likesBook: true,
-            ownsBook: false
-          },
-          {
-            id: uid(),
-            name: 'Maria',
-            likesBook: true,
-            ownsBook: true
-          },
-          {
-            id: uid(),
-            name: 'Sophia',
-            likesBook: false,
-            ownsBook: false
-          },
-          {
-            id: uid(),
-            name: 'Monika',
-            likesBook: true,
-            ownsBook: true
-          },
-          {
-            id: uid(),
-            name: 'Michael',
-            likesBook: false,
-            ownsBook: false
-          },
-          {
-            id: uid(),
-            name: 'Elke',
-            likesBook: false,
-            ownsBook: true
-          },
-          {
-            id: uid(),
-            name: 'Eckhart',
-            likesBook: false,
-            ownsBook: false
-          },
-          {
-            id: uid(),
-            name: 'Rosalinde',
-            likesBook: false,
-            ownsBook: true
-          }
-        ]
+        happyEnd: true
+        // readers: [
+        //   {
+        //     id: uid(),
+        //     name: 'Arne',
+        //     likesBook: false,
+        //     ownsBook: true,
+        //     educationalBook: true
+        //   },
+        //   {
+        //     id: uid(),
+        //     name: 'Emilia',
+        //     likesBook: false,
+        //     ownsBook: true
+        //   },
+        //   {
+        //     id: uid(),
+        //     name: 'Lieselotte',
+        //     likesBook: true,
+        //     ownsBook: true
+        //   },
+        //   {
+        //     id: uid(),
+        //     name: 'Karl',
+        //     likesBook: true,
+        //     ownsBook: false
+        //   },
+        //   {
+        //     id: uid(),
+        //     name: 'Maria',
+        //     likesBook: true,
+        //     ownsBook: true
+        //   },
+        //   {
+        //     id: uid(),
+        //     name: 'Sophia',
+        //     likesBook: false,
+        //     ownsBook: false
+        //   },
+        //   {
+        //     id: uid(),
+        //     name: 'Monika',
+        //     likesBook: true,
+        //     ownsBook: true
+        //   },
+        //   {
+        //     id: uid(),
+        //     name: 'Michael',
+        //     likesBook: false,
+        //     ownsBook: false
+        //   },
+        //   {
+        //     id: uid(),
+        //     name: 'Elke',
+        //     likesBook: false,
+        //     ownsBook: true
+        //   },
+        //   {
+        //     id: uid(),
+        //     name: 'Eckhart',
+        //     likesBook: false,
+        //     ownsBook: false
+        //   },
+        //   {
+        //     id: uid(),
+        //     name: 'Rosalinde',
+        //     likesBook: false,
+        //     ownsBook: true
+        //   }
+        // ]
       },
       {
         id: uid(),
-        title: 'Zweite Mondlandung',
+        title: 'The Secret of the Ninth Planet',
         imgScr:
-          'https://images-na.ssl-images-amazon.com/images/I/41rHveknzrL.jpg',
-        author: 'fritz',
+          'https://images-eu.ssl-images-amazon.com/images/I/41ZRcMdC0%2BL.jpg',
+        author: ' Donald Wollheim',
         genre: 'Soft SciFi',
-        words: '160',
+        words: '280',
+        description:
+          'While the circumnavigation of the solar system seems farfetched, it may not be once the problem of effective anti-gravitational control is solved. In this book I have assumed that the many researchers now actually at work on this problem will achieve such a result in the next decade. It is not at all impossible that they may—for we all know that the more minds that work at a problem, the sooner it will be solved. ',
+        freeText:
+          'Das Buch hatte ich vor knapp 50 Jahren zum Geburtstag geschenkt bekommen. Es ist somit natürlich ein Nostalgiekauf, aber das Buch empfehle ich dennoch, da es die Sehnsucht nach Abenteuer, Weite, Forscherdrang und Zusammenarbeit trotz Andersartigkeit vermittelt. Für mich war es der Startpunkt in viele, viele spätere Science Fiction Bücher mit bleibender Aussagekraft wie Alexander Bogdanows "Der Rote Planet"von 1908. Gefällt: @startdust',
         educational: true,
         extraterrestrials: false,
         timeTravel: false,

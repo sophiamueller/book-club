@@ -8,7 +8,7 @@ import TagListHeading from './TagListHeading'
 import TagStyle from './TagStyle'
 import ReaderCardContent from '../Reader/ReaderCardContent'
 import CollapsedCard from '../BookCard/CollapsedCard'
-import Bookmark from '../Bookmark/Bookmark'
+// import Bookmark from '../Bookmark/Bookmark'
 
 const ImageContainer = styled.div`
   display: grid;
@@ -28,6 +28,8 @@ const Username = styled.span`
   color: black;
   display: flex;
   font-size: 14px;
+  font-family: roboto;
+  font-size: 12px;
 `
 
 const Title = styled.h2`
@@ -48,13 +50,12 @@ export default class ReaderCard extends Component {
     books: PropTypes.array
   }
 
-  static defaultProps = {
-    imgScr: 'https://images-na.ssl-images-amazon.com/images/I/41rHveknzrL.jpg'
-  }
+  // static defaultProps = {
+  //   imgScr: 'https://images-na.ssl-images-amazon.com/images/I/41rHveknzrL.jpg'
+  // }
 
   render() {
     const { name, imgScr, userName, isExpanded, onClick } = this.props
-    console.log(this.props.name)
     return (
       <section data-cy="ReaderCard">
         <ReaderCardContent>
@@ -70,29 +71,25 @@ export default class ReaderCard extends Component {
           >
             <FontAwesomeIcon icon="book" />
           </ToggleIcon>
-          <Bookmark
-            marked={this.props.marked}
-            handleOnClick={this.props.handleBookmark}
-            gridArea="bookmark"
-          />
           <Username>{userName}</Username>
           <CollapsedCard
             data-cy="ExpandContent"
             className={isExpanded ? 'expand' : ''}
           >
-            <Separator />
-            <TagListHeading text="Ich suche nach neuem Lesestoff aus dem Genre:" />
             <TagStyle>
-              <span>diese Bücher finde ich gut!</span>
+              <Separator text={'Diese Bücher finde ich gut!'} />
+
               {this.countSelectedBooks('mag ich') >= 1 ? (
                 this.renderLikedBooks()
               ) : (
-                <span>Es wurden keine Bücher ausgewählt</span>
+                <span>
+                  Es wurden keine Bücher ausgewählt, ich freue mich über
+                  Vorschläge!
+                </span>
               )}
             </TagStyle>
-            <TagListHeading text="hab ich!" />
+            <Separator text={'Diese Bücher kann ich verleihen!'} />
             <TagStyle>
-              <span>diese Bücher:</span>
               {this.countSelectedBooks('hab ich') >= 1 ? (
                 this.renderOwnedBooks()
               ) : (

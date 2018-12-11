@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import imgSrc from '../../images/silver-955496_1280.jpg'
 
 const Wrapper = styled.section`
   align-items: center;
@@ -12,6 +13,7 @@ const Wrapper = styled.section`
   font-weight: bold;
   justify-content: center;
   width: 100%;
+  background: url(${imgSrc});
 `
 
 export default class Header extends Component {

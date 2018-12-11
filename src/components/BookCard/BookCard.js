@@ -36,6 +36,9 @@ const Title = styled.h2`
 const TagList = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  .ToggleIcon {
+  }
 `
 
 export default class BookCard extends Component {
@@ -44,7 +47,9 @@ export default class BookCard extends Component {
     imgScr: PropTypes.string,
     author: PropTypes.string,
     genre: PropTypes.string,
+    description: PropTypes.string,
     freeText: PropTypes.string,
+    reader: PropTypes.string,
     educational: PropTypes.bool,
     extraterrestrials: PropTypes.bool,
     timeTravel: PropTypes.bool,
@@ -59,7 +64,6 @@ export default class BookCard extends Component {
   }
 
   render() {
-    console.log('props:', this.props)
     const {
       title,
       imgScr,
@@ -70,10 +74,11 @@ export default class BookCard extends Component {
       timeTravel,
       philosophical,
       happyEnd,
+      description,
       freeText,
+      reader,
       isExpanded
     } = this.props.data
-    console.log('extrater', extraterrestrials)
 
     return (
       <SingleCard data-cy="SingleCard">
@@ -87,7 +92,7 @@ export default class BookCard extends Component {
             onClick={this.props.onToggleClick}
             className={isExpanded ? 'rotate' : ''}
           >
-            <FontAwesomeIcon icon="book" />
+            <FontAwesomeIcon icon="angle-double-down" />
           </ToggleIcon>
           <Bookmark
             marked={this.props.marked}
@@ -96,10 +101,9 @@ export default class BookCard extends Component {
             handleOnClick={this.props.onBookmarkClick}
           />
 
-          <sectionTag>
+          <section>
             <BookListDetails>Autor:{author}</BookListDetails>
             <BookListDetails>Genre: {genre}</BookListDetails>
-            <BookListDetails>Wörter: {freeText}</BookListDetails>
             <TagList>
               <BookListDetails>
                 {this.showBookBooleanTag(educational, 'Bildungsroman')}
@@ -120,20 +124,18 @@ export default class BookCard extends Component {
                 {this.showBookBooleanTag(happyEnd, 'Happy End')}
               </BookListDetails>
             </TagList>
-          </sectionTag>
+          </section>
 
           <CollapsedCard
             data-cy="CollapsedCard"
             className={isExpanded ? 'expand' : ''}
           >
             <Separator text={'über dieses Buch:'} />
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              ipsa, nisi et possimus porro iusto temporibus libero, dolor facere
-              maxime nulla ab incidunt dolorem eum quos rem assumenda vel quis?
-            </div>
+            <BookListDetails>{description}</BookListDetails>
             <Separator text={'Rezension'} />
-            <TagMain text="Begeisterte/r Leser/in" />
+            <BookListDetails>{freeText}</BookListDetails>
+            <Separator text={'Begeisterte/r Leser/in'} />
+            <BookListDetails>{reader}</BookListDetails>
             <TagIcon>
               {this.countSelectedReader('like') >= 1 ? (
                 this.renderLikedByReader()
@@ -141,7 +143,7 @@ export default class BookCard extends Component {
                 <span>Kein Leser wurde ausgewählt</span>
               )}
             </TagIcon>
-            <TagMain text="Besitzt das Buch" />
+            <TagMain text={'Besitzt das Buch'} />
             <TagIcon>
               {this.countSelectedReader('own') >= 1 ? (
                 this.renderOwnedByReader()
@@ -176,10 +178,9 @@ export default class BookCard extends Component {
     let length
 
     const { readers } = this.props.data
-    console.log(this.props.data)
 
     if (criteria === 'like') {
-      length = readers.filter(p => p.likesBook).length
+      length = readers ? readers.filter(p => p.likesBook).length : 0
     } else if (criteria === 'own') {
       length = 0
     }
@@ -188,7 +189,6 @@ export default class BookCard extends Component {
   }
 
   renderLikedByReader() {
-    console.log(this.props.data)
     return this.props.data.readers
       .filter(p => p.likesBook)
       .sort((a, b) => (a.name < b.name ? -1 : 1))

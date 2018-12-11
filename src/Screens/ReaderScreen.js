@@ -12,7 +12,7 @@ export default class ReaderScreen extends Component {
         name: 'Emilia',
         imgScr:
           'https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr06/28/18/enhanced-29628-1398725179-2.jpg',
-        userName: 'username: stardust',
+        userName: 'user: @stardust',
         isExpanded: false,
         books: [
           {
@@ -34,7 +34,7 @@ export default class ReaderScreen extends Component {
         name: 'Charles',
         imgScr:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKqvyKdSXOAPvqavXOfKbu9LRR-jnezRuEfTkE9lQZ-oFXhGZkSw',
-        userName: 'username: timetraveller',
+        userName: 'user: @timetraveller',
         isExpanded: false,
         books: [
           {

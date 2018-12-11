@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom'
 
 const StyledWrapper = styled.div`
   display: flex;
-  height: 20px;
-  padding: 20px;
+
   form {
     align-items: start;
     padding: 5px;
     justify-content: start;
+    margin: 20px;
   }
 
   input {
@@ -19,10 +19,11 @@ const StyledWrapper = styled.div`
     width: 100%;
     height: 4vh;
     border: 0;
+    border-radius: 10px;
     outline: 0;
-    padding: 0;
+    padding: 5px;
     transition: all 0.3s ease-in-out;
-    border-bottom: 2px solid darkgreen;
+    margin: 10px;
     font-size: 14px;
 
     &:focus {
@@ -41,7 +42,6 @@ export default class BookSearch extends Component {
   render() {
     this.save()
 
-    console.log(this.props.suggestions)
     return (
       <StyledWrapper>
         <form>
