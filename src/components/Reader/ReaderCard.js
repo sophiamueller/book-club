@@ -4,11 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
 import ToggleIcon from './ToggleIcon'
 import Separator from '../BookCard/Separator'
-import TagListHeading from './TagListHeading'
 import TagStyle from './TagStyle'
 import ReaderCardContent from '../Reader/ReaderCardContent'
 import CollapsedCard from '../BookCard/CollapsedCard'
-// import Bookmark from '../Bookmark/Bookmark'
+import { ZoomIn } from 'animate-css-styled-components'
 
 const ImageContainer = styled.div`
   display: grid;
@@ -57,48 +56,50 @@ export default class ReaderCard extends Component {
   render() {
     const { name, imgScr, userName, isExpanded, onClick } = this.props
     return (
-      <section data-cy="ReaderCard">
-        <ReaderCardContent>
-          <ImageContainer>
-            <Image src={imgScr} alt="" />
-          </ImageContainer>
-          <Title>{name}</Title>
+      <ZoomIn duration="1.3s" delay="0.2s">
+        <section data-cy="ReaderCard">
+          <ReaderCardContent>
+            <ImageContainer>
+              <Image src={imgScr} alt="" />
+            </ImageContainer>
+            <Title>{name}</Title>
 
-          <ToggleIcon
-            data-cy="Toggle"
-            onClick={onClick}
-            className={isExpanded ? 'rotate' : ''}
-          >
-            <FontAwesomeIcon icon="book" />
-          </ToggleIcon>
-          <Username>{userName}</Username>
-          <CollapsedCard
-            data-cy="ExpandContent"
-            className={isExpanded ? 'expand' : ''}
-          >
-            <TagStyle>
-              <Separator text={'Diese Bücher finde ich gut!'} />
+            <ToggleIcon
+              data-cy="Toggle"
+              onClick={onClick}
+              className={isExpanded ? 'rotate' : ''}
+            >
+              <FontAwesomeIcon icon="book" />
+            </ToggleIcon>
+            <Username>{userName}</Username>
+            <CollapsedCard
+              data-cy="ExpandContent"
+              className={isExpanded ? 'expand' : ''}
+            >
+              <TagStyle>
+                <Separator text={'Diese Bücher finde ich gut!'} />
 
-              {this.countSelectedBooks('mag ich') >= 1 ? (
-                this.renderLikedBooks()
-              ) : (
-                <span>
-                  Es wurden keine Bücher ausgewählt, ich freue mich über
-                  Vorschläge!
-                </span>
-              )}
-            </TagStyle>
-            <Separator text={'Diese Bücher kann ich verleihen!'} />
-            <TagStyle>
-              {this.countSelectedBooks('hab ich') >= 1 ? (
-                this.renderOwnedBooks()
-              ) : (
-                <span>Es wurden keine Bücher ausgewählt</span>
-              )}
-            </TagStyle>
-          </CollapsedCard>
-        </ReaderCardContent>
-      </section>
+                {this.countSelectedBooks('mag ich') >= 1 ? (
+                  this.renderLikedBooks()
+                ) : (
+                  <span>
+                    Es wurden keine Bücher ausgewählt, ich freue mich über
+                    Vorschläge!
+                  </span>
+                )}
+              </TagStyle>
+              <Separator text={'Diese Bücher kann ich verleihen!'} />
+              <TagStyle>
+                {this.countSelectedBooks('hab ich') >= 1 ? (
+                  this.renderOwnedBooks()
+                ) : (
+                  <span>Es wurden keine Bücher ausgewählt</span>
+                )}
+              </TagStyle>
+            </CollapsedCard>
+          </ReaderCardContent>
+        </section>
+      </ZoomIn>
     )
   }
 

@@ -135,7 +135,13 @@ export default class BookCard extends Component {
             <Separator text={'Rezension'} />
             <BookListDetails>{freeText}</BookListDetails>
             <Separator text={'Begeisterte/r Leser/in'} />
-            <BookListDetails>{reader}</BookListDetails>
+            <BookListDetails>
+              {this.showBookBooleanTag(reader, 'Charles')}
+            </BookListDetails>
+            <BookListDetails>
+              {this.showBookBooleanTag(reader, 'Emilia')}
+            </BookListDetails>
+
             <TagIcon>
               {this.countSelectedReader('like') >= 1 ? (
                 this.renderLikedByReader()

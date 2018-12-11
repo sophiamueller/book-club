@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import InputTitle from './InputTitle'
-
+import { ZoomIn } from 'animate-css-styled-components'
 import { Link } from 'react-router-dom'
 
 const StyledWrapper = styled.div`
@@ -44,15 +44,17 @@ export default class BookSearch extends Component {
 
     return (
       <StyledWrapper>
-        <form>
-          <InputTitle
-            title="title"
-            placeholder="Buchtitel"
-            ref={input => (this.search = input)}
-            onChange={this.handleOnChange}
-          />
-          <Link to={`/searchResults/${this.state.titleEl}`} />
-        </form>
+        <ZoomIn duration="2.9s" delay="0.2s">
+          <form>
+            <InputTitle
+              title="title"
+              placeholder="Buchtitel"
+              ref={input => (this.search = input)}
+              onChange={this.handleOnChange}
+            />
+            <Link to={`/searchResults/${this.state.titleEl}`} />
+          </form>
+        </ZoomIn>
       </StyledWrapper>
     )
   }
