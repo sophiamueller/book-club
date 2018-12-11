@@ -11,8 +11,8 @@ export default class ReaderScreen extends Component {
         id: uid(),
         name: 'Emilia',
         imgScr:
-          'https://images-na.ssl-images-amazon.com/images/I/41rHveknzrL.jpg',
-        userName: 'Emilia',
+          'https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr06/28/18/enhanced-29628-1398725179-2.jpg',
+        userName: 'username: stardust',
         isExpanded: false,
         books: [
           {
@@ -31,10 +31,10 @@ export default class ReaderScreen extends Component {
       },
       {
         id: uid(),
-        name: 'Arne',
+        name: 'Charles',
         imgScr:
-          'https://images-na.ssl-images-amazon.com/images/I/41rHveknzrL.jpg',
-        userName: 'Arne',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKqvyKdSXOAPvqavXOfKbu9LRR-jnezRuEfTkE9lQZ-oFXhGZkSw',
+        userName: 'username: timetraveller',
         isExpanded: false,
         books: [
           {

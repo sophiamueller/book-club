@@ -3,6 +3,11 @@ import Header from '../components/BookCard/Header'
 import BookCardContainer from '../components/BookCard/BookCardContainer'
 import BookCard from '../components/BookCard/BookCard'
 import BookSearch from '../components/BookSearch'
+import styled from 'styled-components'
+
+const Scroller = styled.div`
+  overflow-y: scroll;
+`
 
 export default class HomeScreen extends Component {
   state = {
@@ -13,19 +18,21 @@ export default class HomeScreen extends Component {
     return (
       <React.Fragment>
         <Header text={'Bücher'} />
-        <BookSearch
-          onChange={inputText => this.searchFunction(inputText)}
-          suggestions={this.props.books.filter(book => {
-            return book.title
-              .toLowerCase()
-              .includes(this.state.query.toLowerCase())
-          })}
-        />
-        <BookCardContainer>
-          {this.state.query
-            ? this.renderSearchResults()
-            : this.renderAllBooks()}
-        </BookCardContainer>
+        <Scroller>
+          <BookSearch
+            onChange={inputText => this.searchFunction(inputText)}
+            suggestions={this.props.books.filter(book => {
+              return book.title
+                .toLowerCase()
+                .includes(this.state.query.toLowerCase())
+            })}
+          />
+          <BookCardContainer>
+            {this.state.query
+              ? this.renderSearchResults()
+              : this.renderAllBooks()}
+          </BookCardContainer>
+        </Scroller>
       </React.Fragment>
     )
   }
@@ -53,7 +60,9 @@ export default class HomeScreen extends Component {
     <BookCard
       key={book.id}
       data={book}
-      onClick={() => this.props.toggleExpand(book.id)}
+      onToggleClick={() => this.props.toggleExpand(book.id)}
+      onBookmarkClick={() => this.props.toggleBookmark(book.id)}
+      marked={book.marked}
     />
   )
 }

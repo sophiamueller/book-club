@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
-
 import ToggleIcon from './ToggleIcon'
 import Separator from '../BookCard/Separator'
 import TagListHeading from './TagListHeading'
 import TagStyle from './TagStyle'
 import ReaderCardContent from '../Reader/ReaderCardContent'
 import CollapsedCard from '../BookCard/CollapsedCard'
+import Bookmark from '../Bookmark/Bookmark'
 
 const ImageContainer = styled.div`
   display: grid;
@@ -62,6 +62,7 @@ export default class ReaderCard extends Component {
             <Image src={imgScr} alt="" />
           </ImageContainer>
           <Title>{name}</Title>
+
           <ToggleIcon
             data-cy="Toggle"
             onClick={onClick}
@@ -69,14 +70,20 @@ export default class ReaderCard extends Component {
           >
             <FontAwesomeIcon icon="book" />
           </ToggleIcon>
+          <Bookmark
+            marked={this.props.marked}
+            handleOnClick={this.props.handleBookmark}
+            gridArea="bookmark"
+          />
           <Username>{userName}</Username>
           <CollapsedCard
             data-cy="ExpandContent"
             className={isExpanded ? 'expand' : ''}
           >
             <Separator />
-            <TagListHeading text="Ich suche nach neuem Lesestoff" />
+            <TagListHeading text="Ich suche nach neuem Lesestoff aus dem Genre:" />
             <TagStyle>
+              <span>diese Bücher finde ich gut!</span>
               {this.countSelectedBooks('mag ich') >= 1 ? (
                 this.renderLikedBooks()
               ) : (
@@ -85,6 +92,7 @@ export default class ReaderCard extends Component {
             </TagStyle>
             <TagListHeading text="hab ich!" />
             <TagStyle>
+              <span>diese Bücher:</span>
               {this.countSelectedBooks('hab ich') >= 1 ? (
                 this.renderOwnedBooks()
               ) : (

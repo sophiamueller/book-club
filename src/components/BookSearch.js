@@ -24,22 +24,11 @@ const StyledWrapper = styled.div`
     transition: all 0.3s ease-in-out;
     border-bottom: 2px solid darkgreen;
     font-size: 14px;
-    /* margin-left: 10px;
-      margin-right: 20px;
-      font-size: 22px;
-      caret-color: black;
-      color: darkgreen;
-      width: 70%;
-      border: 0.5px solid black;
-      margin: 40px;
-      padding: 50px;
-      border-radius: 10px;
-      padding: 20px; */
 
     &:focus {
       border-color: darkgreen;
       outline: none;
-      box-shadow: 0 0 350px 350px black;
+      box-shadow: 0 0 450px 350px black;
     }
   }
 `

@@ -15,7 +15,6 @@ library.add(faBook, faUser, faPlus, faPastafarianism)
 const Navig = styled.nav`
   display: flex;
   background: black;
-  grid-row: 4;
 
   a:any-link {
     align-items: center;

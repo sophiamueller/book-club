@@ -11,7 +11,7 @@ import { postBooks } from '../services/books'
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 65px 30px auto 60px;
+  grid-template-rows: 65px auto 60px;
   height: 100vh;
   background: darkgray;
   background-image: url(${imgSrc});
@@ -144,6 +144,7 @@ export default class App extends Component {
         timeTravel: true,
         philosophical: true,
         happyEnd: true,
+        marked: false,
         readers: [
           {
             id: uid(),
@@ -256,6 +257,20 @@ export default class App extends Component {
     })
   }
 
+  toggleBookmark = id => {
+    const { books } = this.state
+    const index = books.findIndex(g => g.id === id)
+    const book = books[index]
+    const updatedBooks = [
+      ...books.slice(0, index),
+      { ...book, marked: !book.marked },
+      ...books.slice(index + 1)
+    ]
+    this.setState({
+      books: updatedBooks
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -267,6 +282,7 @@ export default class App extends Component {
               <HomeScreen
                 books={this.state.books}
                 toggleExpand={this.toggleExpand}
+                toggleBookmark={this.toggleBookmark}
               />
             )}
           />
