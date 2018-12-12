@@ -13,6 +13,9 @@ const Wrapper = styled.section`
   font-weight: bold;
   justify-content: center;
   width: 100%;
+  text-shadow: 1px 1px 2px brown, 0 0 1em black, 0 0 0.2em black;
+  /* text-shadow: 5px 5px #558abb; */
+  /* text-shadow: brown 1px 0 10px; */
   background: url(${imgSrc});
 `
 
