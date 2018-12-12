@@ -30,6 +30,7 @@ const StyledWrapper = styled.div`
       border-color: darkgreen;
       outline: none;
       box-shadow: 0 0 450px 350px black;
+      z-index: -1;
     }
   }
 `
@@ -44,7 +45,7 @@ export default class BookSearch extends Component {
 
     return (
       <StyledWrapper>
-        <ZoomIn duration="2.9s" delay="0.2s">
+        <ZoomIn duration="0.9s" delay="0.2s">
           <form>
             <InputTitle
               title="title"

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import intera from '../components/../images/Interaction Designer.svg'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -8,10 +9,18 @@ import {
   faBook,
   faUser,
   faPlus,
-  faAngleDoubleDown
+  faAngleDoubleDown,
+  faRocket
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBook, faUser, faPlus, faPastafarianism, faAngleDoubleDown)
+library.add(
+  faBook,
+  faUser,
+  faPlus,
+  faPastafarianism,
+  faAngleDoubleDown,
+  faRocket
+)
 
 const Navig = styled.nav`
   display: flex;

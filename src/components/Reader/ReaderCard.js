@@ -69,7 +69,7 @@ export default class ReaderCard extends Component {
               onClick={onClick}
               className={isExpanded ? 'rotate' : ''}
             >
-              <FontAwesomeIcon icon="book" />
+              <FontAwesomeIcon icon="rocket" />
             </ToggleIcon>
             <Username>{userName}</Username>
             <CollapsedCard

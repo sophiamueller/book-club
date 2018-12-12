@@ -3,6 +3,9 @@ import uid from 'uid'
 import ReaderHeader from '../components/Reader/ReaderHeader'
 import ReaderCardContainer from '../components/Reader/ReaderCardContainer'
 import ReaderCard from '../components/Reader/ReaderCard'
+import alfred from '../components/../images/alfred.jpeg'
+import maria from '../components/../images/maria.jpeg'
+import alex from '../components/../images/alex.jpeg'
 
 export default class ReaderScreen extends Component {
   state = {
@@ -46,6 +49,75 @@ export default class ReaderScreen extends Component {
           {
             id: uid(),
             title: 'Roter Stern',
+            likedByReader: false,
+            ownedByReader: true
+          }
+        ]
+      },
+      {
+        id: uid(),
+        name: 'Arne',
+        imgScr: alfred,
+        userName: 'user: @rockethunter',
+        isExpanded: false,
+        books: [
+          {
+            id: uid(),
+            title: 'Anything You Can Do',
+            likedByReader: true,
+            ownedByReader: true
+          },
+          {
+            id: uid(),
+            title: 'The Secret of the Ninth Planet',
+            likedByReader: true,
+            ownedByReader: false
+          }
+        ]
+      },
+      {
+        id: uid(),
+        name: 'Sophia',
+        imgScr: maria,
+        userName: 'user: @jupiter',
+        isExpanded: false,
+        books: [
+          {
+            id: uid(),
+            title: 'The Time Machine',
+            likedByReader: true,
+            ownedByReader: true
+          },
+          {
+            id: uid(),
+            title: 'The Secret of the Ninth Planet',
+            likedByReader: false,
+            ownedByReader: true
+          }
+        ]
+      },
+      {
+        id: uid(),
+        name: 'Eckhard',
+        imgScr: alex,
+        userName: 'user: @moondancer',
+        isExpanded: false,
+        books: [
+          {
+            id: uid(),
+            title: 'Deep In The Dark',
+            likedByReader: true,
+            ownedByReader: true
+          },
+          {
+            id: uid(),
+            title: 'The Secret of the Ninth Planet',
+            likedByReader: false,
+            ownedByReader: true
+          },
+          {
+            id: uid(),
+            title: 'Moon Dancer',
             likedByReader: false,
             ownedByReader: true
           }

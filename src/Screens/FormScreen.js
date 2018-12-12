@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Checkbox from '../components/Form/Checkbox'
 import Input from '../components/Form/Input'
+import { ZoomIn } from 'animate-css-styled-components'
 
 const FormInput = styled.div`
   max-width: 600px;
@@ -144,94 +145,96 @@ export default class FormScreen extends React.Component {
 
     return (
       <FormInput>
-        <form id="bookCard">
-          <h2>Füge ein neues Buch hinzu:</h2>
-          <h3>Fülle alle relevanten Felder aus </h3>
-          <Input
-            ref={this.title}
-            placeholder="Buchtitel"
-            name="title"
-            type="text"
-            onChange={onChange}
-            required={true}
-          />
-          <Input
-            placeholder="Autor"
-            name="author"
-            type="text"
-            required={true}
-            onChange={onChange}
-          />
-          <Input
-            placeholder="Genre"
-            name="genre"
-            type="text"
-            required={true}
-            onChange={onChange}
-          />
+        <ZoomIn>
+          <form id="bookCard">
+            <h2>Füge ein neues Buch hinzu:</h2>
+            <h3>Fülle alle relevanten Felder aus </h3>
+            <Input
+              ref={this.title}
+              placeholder="Buchtitel"
+              name="title"
+              type="text"
+              onChange={onChange}
+              required={true}
+            />
+            <Input
+              placeholder="Autor"
+              name="author"
+              type="text"
+              required={true}
+              onChange={onChange}
+            />
+            <Input
+              placeholder="Genre"
+              name="genre"
+              type="text"
+              required={true}
+              onChange={onChange}
+            />
 
-          <Input
-            placeholder="Buchbeschreibung"
-            name="description"
-            type="text"
-            onChange={onChange}
-          />
-          <Input
-            placeholder="user"
-            name="reader"
-            type="text"
-            onChange={onChange}
-          />
+            <Input
+              placeholder="Buchbeschreibung"
+              name="description"
+              type="text"
+              onChange={onChange}
+            />
+            <Input
+              placeholder="user"
+              name="reader"
+              type="text"
+              onChange={onChange}
+            />
 
-          <Input
-            placeholder="Schreib deine Meinung hier..."
-            name="freeText"
-            type="text"
-            onChange={onChange}
-          />
+            <Input
+              placeholder="Schreib deine Meinung hier..."
+              name="freeText"
+              type="text"
+              onChange={onChange}
+            />
 
-          <Checkbox
-            onCheck={onCheck}
-            name="educational"
-            label="Bildungsroman"
-            inputRef={this.educationalCheckboxRef}
-            displayValue={displayValueCheckboxEducational}
-          />
+            <Checkbox
+              onCheck={onCheck}
+              name="educational"
+              label="Bildungsroman"
+              inputRef={this.educationalCheckboxRef}
+              displayValue={displayValueCheckboxEducational}
+            />
 
-          <Checkbox
-            onCheck={onCheck}
-            name="extraterrestrials"
-            label="außerirdisches Leben"
-            inputRef={this.extraterrestrialsCheckboxRef}
-            displayValue={displayValueCheckboxExtraterrestrials}
-          />
+            <Checkbox
+              onCheck={onCheck}
+              name="extraterrestrials"
+              label="außerirdisches Leben"
+              inputRef={this.extraterrestrialsCheckboxRef}
+              displayValue={displayValueCheckboxExtraterrestrials}
+            />
 
-          <Checkbox
-            onCheck={onCheck}
-            name="timeTravel"
-            label="Zeitreisen"
-            inputRef={this.timeTravelCheckboxRef}
-            displayValue={displayValueCheckboxTimeTravel}
-          />
+            <Checkbox
+              onCheck={onCheck}
+              name="timeTravel"
+              label="Zeitreisen"
+              inputRef={this.timeTravelCheckboxRef}
+              displayValue={displayValueCheckboxTimeTravel}
+            />
 
-          <Checkbox
-            onCheck={onCheck}
-            name="philosophical"
-            label="philosophisch"
-            inputRef={this.philosophicalCheckboxRef}
-            displayValue={displayValueCheckboxPhilosophical}
-          />
+            <Checkbox
+              onCheck={onCheck}
+              name="philosophical"
+              label="philosophisch"
+              inputRef={this.philosophicalCheckboxRef}
+              displayValue={displayValueCheckboxPhilosophical}
+            />
 
-          <Checkbox
-            onCheck={onCheck}
-            name="happyEnd"
-            label="Happy End"
-            inputRef={this.happyEndCheckboxRef}
-            displayValue={displayValueCheckboxHappyEnd}
-          />
+            <Checkbox
+              onCheck={onCheck}
+              name="happyEnd"
+              label="Happy End"
+              inputRef={this.happyEndCheckboxRef}
+              displayValue={displayValueCheckboxHappyEnd}
+            />
 
-          <button onClick={this.handleSubmitForm}>Hinzufügen</button>
-        </form>
+            <button onClick={this.handleSubmitForm}>Hinzufügen</button>
+          </form>
+        </ZoomIn>
       </FormInput>
     )
   }
