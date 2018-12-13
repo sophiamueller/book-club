@@ -17,7 +17,7 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header text={'Book Club'} />
+        <Header text={'~ Book Club ~'} />
         <Scroller>
           <BookSearch
             onChange={inputText => this.searchFunction(inputText)}

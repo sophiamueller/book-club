@@ -37,7 +37,9 @@ const Navig = styled.nav`
     width: 100%;
 
     &.active {
-      color: brown;
+      color: gray;
+      background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+      font-size: 40px;
     }
   }
 `

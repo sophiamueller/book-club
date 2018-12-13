@@ -11,26 +11,3 @@ const CardWrapper = styled.section`
     margin: 10px 3px;
   }
 `
-
-// export default class CardHead extends Component {
-//   render() {
-//     const { titel, author, genre, rating, description } = this.props
-//     return (
-//       <CardWrapper>
-//         <h3> {titel} </h3>
-//         <div>
-//           <span> Autor: {author} </span>
-//         </div>
-//         <div>
-//           <span> Genere: {genre} </span>
-//         </div>
-//         <div>
-//           <span> Bewertung: {rating}</span>
-//         </div>
-//         <div>
-//           <span> Beschreibung: {description} </span>
-//         </div>
-//       </CardWrapper>
-//     )
-//   }
-// }

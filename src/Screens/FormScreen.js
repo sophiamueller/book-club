@@ -51,6 +51,7 @@ const FormInput = styled.div`
     padding-left: 15px;
     color: black;
     text-transform: bold;
+    text-shadow: 1px 1px 2px brown, 0 0 1em black, 0 0 0.2em black;
   }
 
   button:hover,
@@ -98,6 +99,7 @@ const FormInput = styled.div`
     color: black;
     margin: 0;
     color: white;
+    text-shadow: 1px 1px 2px brown, 0 0 1em black, 0 0 0.2em black;
   }
 
   h3 {
@@ -116,6 +118,11 @@ const FormInput = styled.div`
     color: black;
     text-decoration: none;
   }
+`
+
+const ExtraBox = styled.div`
+  text-shadow: 1px 1px 2px brown, 0 0 1em black, 0 0 0.2em black;
+  color: white;
 `
 
 export default class FormScreen extends React.Component {
@@ -147,7 +154,7 @@ export default class FormScreen extends React.Component {
       <FormInput>
         <ZoomIn>
           <form id="bookCard">
-            <h2>Füge ein neues Buch hinzu:</h2>
+            <h2>Neues Buch anlegen:</h2>
             <h3>Fülle alle relevanten Felder aus </h3>
             <Input
               ref={this.title}
@@ -179,7 +186,7 @@ export default class FormScreen extends React.Component {
               onChange={onChange}
             />
             <Input
-              placeholder="user"
+              placeholder="@user"
               name="reader"
               type="text"
               onChange={onChange}
@@ -191,46 +198,47 @@ export default class FormScreen extends React.Component {
               type="text"
               onChange={onChange}
             />
+            <ExtraBox>
+              <Checkbox
+                onCheck={onCheck}
+                name="educational"
+                label="Bildungsroman"
+                inputRef={this.educationalCheckboxRef}
+                displayValue={displayValueCheckboxEducational}
+              />
 
-            <Checkbox
-              onCheck={onCheck}
-              name="educational"
-              label="Bildungsroman"
-              inputRef={this.educationalCheckboxRef}
-              displayValue={displayValueCheckboxEducational}
-            />
+              <Checkbox
+                onCheck={onCheck}
+                name="extraterrestrials"
+                label="außerirdisches Leben"
+                inputRef={this.extraterrestrialsCheckboxRef}
+                displayValue={displayValueCheckboxExtraterrestrials}
+              />
 
-            <Checkbox
-              onCheck={onCheck}
-              name="extraterrestrials"
-              label="außerirdisches Leben"
-              inputRef={this.extraterrestrialsCheckboxRef}
-              displayValue={displayValueCheckboxExtraterrestrials}
-            />
+              <Checkbox
+                onCheck={onCheck}
+                name="timeTravel"
+                label="Zeitreisen"
+                inputRef={this.timeTravelCheckboxRef}
+                displayValue={displayValueCheckboxTimeTravel}
+              />
 
-            <Checkbox
-              onCheck={onCheck}
-              name="timeTravel"
-              label="Zeitreisen"
-              inputRef={this.timeTravelCheckboxRef}
-              displayValue={displayValueCheckboxTimeTravel}
-            />
+              <Checkbox
+                onCheck={onCheck}
+                name="philosophical"
+                label="philosophisch"
+                inputRef={this.philosophicalCheckboxRef}
+                displayValue={displayValueCheckboxPhilosophical}
+              />
 
-            <Checkbox
-              onCheck={onCheck}
-              name="philosophical"
-              label="philosophisch"
-              inputRef={this.philosophicalCheckboxRef}
-              displayValue={displayValueCheckboxPhilosophical}
-            />
-
-            <Checkbox
-              onCheck={onCheck}
-              name="happyEnd"
-              label="Happy End"
-              inputRef={this.happyEndCheckboxRef}
-              displayValue={displayValueCheckboxHappyEnd}
-            />
+              <Checkbox
+                onCheck={onCheck}
+                name="happyEnd"
+                label="Happy End"
+                inputRef={this.happyEndCheckboxRef}
+                displayValue={displayValueCheckboxHappyEnd}
+              />
+            </ExtraBox>
 
             <button onClick={this.handleSubmitForm}>Hinzufügen</button>
           </form>

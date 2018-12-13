@@ -129,7 +129,7 @@ export default class ReaderScreen extends Component {
   render() {
     return (
       <React.Fragment>
-        <ReaderHeader text={'Lesezirkel'} />
+        <ReaderHeader text={'~ Lesezirkel ~'} />
         <ReaderCardContainer>{this.renderAllReader()}</ReaderCardContainer>
       </React.Fragment>
     )

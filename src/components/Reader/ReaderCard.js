@@ -38,6 +38,20 @@ const Title = styled.h2`
   grid-column-start: span 2;
   margin: 0;
 `
+const IconContainer = styled.div`
+  font-size: 15px;
+  padding: 20px;
+  border-radius: 50px;
+  background-image: linear-gradient(
+    to top,
+    lightgrey 0%,
+    lightgrey 1%,
+    #e0e0e0 26%,
+    #efefef 48%,
+    #d9d9d9 75%,
+    #bcbcbc 100%
+  );
+`
 
 export default class ReaderCard extends Component {
   static propTypes = {
@@ -48,10 +62,6 @@ export default class ReaderCard extends Component {
     onClick: PropTypes.func,
     books: PropTypes.array
   }
-
-  // static defaultProps = {
-  //   imgScr: 'https://images-na.ssl-images-amazon.com/images/I/41rHveknzrL.jpg'
-  // }
 
   render() {
     const { name, imgScr, userName, isExpanded, onClick } = this.props
@@ -69,7 +79,10 @@ export default class ReaderCard extends Component {
               onClick={onClick}
               className={isExpanded ? 'rotate' : ''}
             >
-              <FontAwesomeIcon icon="rocket" />
+              <IconContainer>
+                {' '}
+                <FontAwesomeIcon icon="rocket" />
+              </IconContainer>
             </ToggleIcon>
             <Username>{userName}</Username>
             <CollapsedCard

@@ -7,10 +7,11 @@ import styled from 'styled-components'
 library.add(faHeart)
 
 const Heart = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: right;
   color: grey;
   grid-area: bookmark;
+  margin-left: 20px;
 
   &.marked {
     color: black;

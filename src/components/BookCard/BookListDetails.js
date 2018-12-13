@@ -5,6 +5,4 @@ export default styled.span`
   color: #5f6368;
   display: flex;
   font-size: 14px;
-  /* margin: 5px;
-  padding: 3px; */
 `

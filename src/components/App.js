@@ -6,7 +6,7 @@ import HomeScreen from '../Screens/HomeScreen'
 import ReaderScreen from '../Screens/ReaderScreen'
 import FormScreen from '../Screens/FormScreen'
 import Navigation from './Navigation'
-import imgSrc from '.././images/decorative-1801432_1280.png'
+import imgSrc from '.././images/universe-2742113_1280.jpg'
 import { postBooks } from '../services/books'
 
 const Wrapper = styled.div`
@@ -37,75 +37,6 @@ export default class App extends Component {
           'The Time Machine is a science fiction novella by H. G. Wells, published in 1895 and written as a frame narrative. The work is generally credited with the popularization of the concept of time travel by using a vehicle that allows an operator to travel purposely and selectively forwards or backwards in time. The term "time machine", coined by Wells, is now almost universally used to refer to such a vehicle.',
         freeText:
           'At least once a year a (classic) novel in English. Thats my personal goal and this year I chose H. G. Wells The Time Machine. I love time-travveling stories.'
-        // readers: [
-        //   {
-        //     id: uid(),
-        //     name: 'Arne',
-        //     likesBook: false,
-        //     ownsBook: true,
-        //     educationalBook: true
-        //   },
-        //   {
-        //     id: uid(),
-        //     name: 'Emilia',
-        //     likesBook: false,
-        //     ownsBook: true
-        //   },
-        //   {
-        //     id: uid(),
-        //     name: 'Lieselotte',
-        //     likesBook: true,
-        //     ownsBook: true
-        //   },
-        //   {
-        //     id: uid(),
-        //     name: 'Karl',
-        //     likesBook: true,
-        //     ownsBook: false
-        //   },
-        //   {
-        //     id: uid(),
-        //     name: 'Maria',
-        //     likesBook: true,
-        //     ownsBook: true
-        //   },
-        //   {
-        //     id: uid(),
-        //     name: 'Sophia',
-        //     likesBook: false,
-        //     ownsBook: false
-        //   },
-        //   {
-        //     id: uid(),
-        //     name: 'Monika',
-        //     likesBook: true,
-        //     ownsBook: true
-        //   },
-        //   {
-        //     id: uid(),
-        //     name: 'Michael',
-        //     likesBook: false,
-        //     ownsBook: false
-        //   },
-        //   {
-        //     id: uid(),
-        //     name: 'Elke',
-        //     likesBook: false,
-        //     ownsBook: true
-        //   },
-        //   {
-        //     id: uid(),
-        //     name: 'Eckhart',
-        //     likesBook: false,
-        //     ownsBook: false
-        //   },
-        //   {
-        //     id: uid(),
-        //     name: 'Rosalinde',
-        //     likesBook: false,
-        //     ownsBook: true
-        //   }
-        // ]
       },
       {
         id: uid(),

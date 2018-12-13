@@ -8,14 +8,13 @@ const StyledWrapper = styled.div`
   display: flex;
 
   form {
-    align-items: start;
+    align-items: center;
     padding: 5px;
-    justify-content: start;
+    justify-content: center;
     margin: 20px;
   }
 
   input {
-    display: flex;
     width: 100%;
     height: 4vh;
     border: 0;
@@ -23,13 +22,13 @@ const StyledWrapper = styled.div`
     outline: 0;
     padding: 5px;
     transition: all 0.3s ease-in-out;
-    margin: 10px;
-    font-size: 14px;
+    margin: 55px;
+    font-size: 12px;
 
     &:focus {
       border-color: darkgreen;
       outline: none;
-      box-shadow: 0 0 450px 350px black;
+      box-shadow: 0 0 45px 40px white;
       z-index: -1;
     }
   }
@@ -49,7 +48,7 @@ export default class BookSearch extends Component {
           <form>
             <InputTitle
               title="title"
-              placeholder="Buchtitel"
+              placeholder="Licht! an!  Finde deinen SciFi Buchtitel"
               ref={input => (this.search = input)}
               onChange={this.handleOnChange}
             />

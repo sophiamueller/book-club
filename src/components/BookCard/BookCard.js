@@ -40,6 +40,21 @@ const TagList = styled.div`
   .ToggleIcon {
   }
 `
+const AngleIcon = styled.div`
+  font-size: 15px;
+  background-image: linear-gradient(
+    to top,
+    lightgrey 0%,
+    lightgrey 1%,
+    #e0e0e0 26%,
+    #efefef 48%,
+    #d9d9d9 75%,
+    #bcbcbc 100%
+  );
+  background-blend-mode: screen, overlay;
+  border-radius: 50px;
+  padding: 10px;
+`
 
 export default class BookCard extends Component {
   static propTypes = {
@@ -87,12 +102,15 @@ export default class BookCard extends Component {
         </ImageContainer>
         <CardContent>
           <Title>{title}</Title>
+
           <ToggleIcon
             data-cy="Toggle"
             onClick={this.props.onToggleClick}
             className={isExpanded ? 'rotate' : ''}
           >
-            <FontAwesomeIcon icon="angle-double-down" />
+            <AngleIcon>
+              <FontAwesomeIcon icon="angle-double-down" />
+            </AngleIcon>
           </ToggleIcon>
           <Bookmark
             marked={this.props.marked}
