@@ -48,7 +48,7 @@ export default class BookSearch extends Component {
           <form>
             <InputTitle
               title="title"
-              placeholder="Licht an!  Finde deinen SciFi Buchtitel"
+              placeholder="Licht an! Finde deinen SciFi Buchtitel."
               ref={input => (this.search = input)}
               onChange={this.handleOnChange}
             />
